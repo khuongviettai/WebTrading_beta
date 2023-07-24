@@ -7,6 +7,11 @@ import close from "../../assets/icons/close.png";
 
 const Navbar: React.FC = () => {
   const [isNavbarFixed, setNavbarFixed] = useState(false);
+  const [openNavbar, setOpenNavbar] = useState(false);
+  const [openKnowledge, setOpenKnowledge] = useState(false);
+  const [openForex, setOpenForex] = useState(false);
+  const [openIndicator, setOpenIndicator] = useState(false);
+
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
@@ -23,10 +28,23 @@ const Navbar: React.FC = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-  const [openNavbar, setOpenNavbar] = useState(false);
+
+  const handleKnowledge = () => {
+    setOpenKnowledge(!openKnowledge);
+  };
+
+  const handleForex = () => {
+    setOpenForex(!openForex);
+  };
+
+  const handleIndicator = () => {
+    setOpenIndicator(!openIndicator);
+  };
+
   const handleNavbarToggle = () => {
     setOpenNavbar(!openNavbar);
   };
+
   return (
     <header className={`Navbar ${isNavbarFixed ? "Navbar--fixed" : ""}`}>
       <div className="container">
@@ -117,15 +135,6 @@ const Navbar: React.FC = () => {
                   <div className="panel__subMenu-body">
                     <div className="panel__subMenu-wrap">
                       <div className="row-fix">
-                        <div className="col-6">
-                          <ul className="panel__subMenu-list">
-                            <li className="panel__subMenu-list--item">
-                              <a href="" className="panel__subMenu-item--link">
-                                All
-                              </a>
-                            </li>
-                          </ul>
-                        </div>
                         <div className="col-6">
                           <ul className="panel__subMenu-list">
                             <li className="panel__subMenu-list--item">
@@ -286,7 +295,10 @@ const Navbar: React.FC = () => {
                   <a href="#" className="Navbar__mobile-menu--title">
                     Kiến thức
                   </a>
-                  <div className="Navbar__mobile-menu--more">
+                  <div
+                    className="Navbar__mobile-menu--more"
+                    onClick={handleKnowledge}
+                  >
                     <img
                       src={expand}
                       alt="expand"
@@ -295,7 +307,11 @@ const Navbar: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="Navbar__mobile-subMenu--knowledge">
+                <div
+                  className={`Navbar__mobile-subMenu--knowledge ${
+                    openKnowledge ? "show" : ""
+                  }`}
+                >
                   <div className="Navbar__mobile-subMenu--body">
                     <div className="row-fix">
                       <div className="col-12">
@@ -308,21 +324,21 @@ const Navbar: React.FC = () => {
                       <div className="col-12">
                         <a href="#" className="Navbar__mobile-subMenu--item">
                           <div className="Navbar__mobile-subMenu--title">
-                            Kiến thức cơ bản
+                            Mô hình giá
                           </div>
                         </a>
                       </div>
                       <div className="col-12">
                         <a href="#" className="Navbar__mobile-subMenu--item">
                           <div className="Navbar__mobile-subMenu--title">
-                            Kiến thức cơ bản
+                            Mô hình nến
                           </div>
                         </a>
                       </div>
                       <div className="col-12">
                         <a href="#" className="Navbar__mobile-subMenu--item">
                           <div className="Navbar__mobile-subMenu--title">
-                            Kiến thức cơ bản
+                            Phương pháp Wyckoff
                           </div>
                         </a>
                       </div>
@@ -335,12 +351,60 @@ const Navbar: React.FC = () => {
                   <a href="#" className="Navbar__mobile-menu--title">
                     Forex
                   </a>
-                  <div className="Navbar__mobile-menu--more">
+                  <div
+                    className="Navbar__mobile-menu--more"
+                    onClick={handleForex}
+                  >
                     <img
                       src={expand}
                       alt="expand"
                       className="Navbar__mobile-menu--img"
                     />
+                  </div>
+                </div>
+                <div
+                  className={`Navbar__mobile-subMenu--forex ${
+                    openForex ? "show" : ""
+                  }`}
+                >
+                  <div className="Navbar__mobile-subMenu--body">
+                    <div className="row-fix">
+                      <div className="col-12">
+                        <a href="#" className="Navbar__mobile-subMenu--item">
+                          <div className="Navbar__mobile-subMenu--title">
+                            Hệ thống giao dịch
+                          </div>
+                        </a>
+                      </div>
+                      <div className="col-12">
+                        <a href="#" className="Navbar__mobile-subMenu--item">
+                          <div className="Navbar__mobile-subMenu--title">
+                            Hướng dẫn mở tài khoản
+                          </div>
+                        </a>
+                      </div>
+                      <div className="col-12">
+                        <a href="#" className="Navbar__mobile-subMenu--item">
+                          <div className="Navbar__mobile-subMenu--title">
+                            Quản lý vốn
+                          </div>
+                        </a>
+                      </div>
+                      <div className="col-12">
+                        <a href="#" className="Navbar__mobile-subMenu--item">
+                          <div className="Navbar__mobile-subMenu--title">
+                            Phân tích xu hướng
+                          </div>
+                        </a>
+                      </div>
+                      <div className="col-12">
+                        <a href="#" className="Navbar__mobile-subMenu--item">
+                          <div className="Navbar__mobile-subMenu--title">
+                            Kiến thức forex
+                          </div>
+                        </a>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </li>
@@ -349,12 +413,39 @@ const Navbar: React.FC = () => {
                   <a href="#" className="Navbar__mobile-menu--title">
                     Indicator
                   </a>
-                  <div className="Navbar__mobile-menu--more">
+                  <div
+                    className="Navbar__mobile-menu--more"
+                    onClick={handleIndicator}
+                  >
                     <img
                       src={expand}
                       alt="expand"
                       className="Navbar__mobile-menu--img"
                     />
+                  </div>
+                </div>
+                <div
+                  className={`Navbar__mobile-subMenu--indicator ${
+                    openIndicator ? "show" : ""
+                  }`}
+                >
+                  <div className="Navbar__mobile-subMenu--body">
+                    <div className="row-fix">
+                      <div className="col-12">
+                        <a href="#" className="Navbar__mobile-subMenu--item">
+                          <div className="Navbar__mobile-subMenu--title">
+                            Meta Trader 4
+                          </div>
+                        </a>
+                      </div>
+                      <div className="col-12">
+                        <a href="#" className="Navbar__mobile-subMenu--item">
+                          <div className="Navbar__mobile-subMenu--title">
+                            Meta Trader 5
+                          </div>
+                        </a>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </li>

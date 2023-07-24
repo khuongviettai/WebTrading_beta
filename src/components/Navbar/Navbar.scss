@@ -354,8 +354,19 @@
   }
 
   .Navbar__mobile-subMenu--knowledge {
+    display: none;
     padding: 20px;
     height: 230px;
+  }
+  .Navbar__mobile-subMenu--forex {
+    display: none;
+    padding: 20px;
+    height: 300px;
+  }
+  .Navbar__mobile-subMenu--indicator {
+    display: none;
+    padding: 20px;
+    height: 120px;
   }
   .Navbar__mobile-subMenu--title {
     font-size: 14px;
