@@ -11,6 +11,7 @@ const Navbar: React.FC = () => {
   const [openKnowledge, setOpenKnowledge] = useState(false);
   const [openForex, setOpenForex] = useState(false);
   const [openIndicator, setOpenIndicator] = useState(false);
+  const [showWarning, setShowWarning] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,6 +27,15 @@ const Navbar: React.FC = () => {
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+  useEffect(() => {
+    const hideWarningTimeout = setTimeout(() => {
+      setShowWarning(false);
+    }, 90000);
+
+    return () => {
+      clearTimeout(hideWarningTimeout);
     };
   }, []);
 
@@ -67,7 +77,7 @@ const Navbar: React.FC = () => {
               <li className="panel__list-item">
                 <a className="panel__list-item--link">
                   <div className="panel__item-link--body">
-                    Kiến thức
+                    Khoá học
                     <img
                       src={expand}
                       alt="expand"
@@ -488,6 +498,16 @@ const Navbar: React.FC = () => {
           </div>
         </div>
       </div>
+      {showWarning && (
+        <div className="warning">
+          <div className="marquee-text">
+            Cảnh báo đây là một thị trường vô cùng rủ ro. Thị trường ngoại hối
+            (Forex) là một thế giới tài chính hấp dẫn và tiềm ẩn nhiều cơ hội
+            lớn. Tuy nhiên, đi cùng với những triển vọng hứa hẹn là những rủi ro
+            tiềm ẩn, đòi hỏi sự cẩn trọng và hiểu biết
+          </div>
+        </div>
+      )}
     </header>
   );
 };
