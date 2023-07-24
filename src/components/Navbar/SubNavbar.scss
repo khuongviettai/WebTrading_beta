@@ -1,0 +1,56 @@
+.SubNavbar {
+  height: 34px;
+  background: 0 0;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08);
+  border-bottom: none;
+  font-size: 14px;
+  line-height: 14px;
+  color: #8c8c8c;
+  position: relative;
+  z-index: 20;
+  &__row {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__today {
+    margin: 0;
+    height: 34px;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+  }
+  &__contact {
+    &-list {
+      display: flex;
+      list-style: none;
+      margin-block-start: 0em;
+      margin-block-end: 0em;
+      margin-inline-start: 0px;
+      margin-inline-end: 0px;
+      padding-inline-start: 0px;
+    }
+    &-item {
+      margin: 0 5px;
+    }
+    &-img {
+      width: 20px;
+      height: 20px;
+      padding: 5px;
+    }
+  }
+}
+
+.SubNavbar__icon {
+  font-size: 20px;
+  &:hover {
+    color: #ff9671;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .SubNavbar {
+    display: none;
+  }
+}
