@@ -1,15 +1,11 @@
 import "./App.css";
-import Footer from "./components/Footer/Footer";
-import Navbar from "./components/Navbar/Navbar";
-import SubNavbar from "./components/Navbar/SubNavbar";
+import SignIn from "./components/SignIn/SignIn";
 import "./styles/scss/app.scss";
 
 function App() {
   return (
     <>
-      <SubNavbar />
-      <Navbar />
-      <Footer />
+      <SignIn />
     </>
   );
 }

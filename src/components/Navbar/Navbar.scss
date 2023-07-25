@@ -275,6 +275,37 @@
   width: 30px;
   height: 30px;
 }
+/* Navbar.scss */
+
+.warning {
+  overflow: hidden;
+}
+
+.marquee-text {
+  height: 20px;
+  width: 100%;
+  animation: marquee 30s linear infinite, fadeOut 2s 28s; /* Scrolling for 30s, then fade out in the last 2 seconds */
+  opacity: 1; /* Starting opacity */
+  color: #ff0000;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
 
 .Navbar__mobile {
   display: none;
@@ -375,34 +406,7 @@
     padding: 17px 17px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   }
-}
-
-/* Navbar.scss */
-
-.warning {
-  overflow: hidden;
-}
-
-.marquee-text {
-  animation: marquee 30s linear infinite, fadeOut 2s 28s; /* Scrolling for 30s, then fade out in the last 2 seconds */
-  opacity: 1; /* Starting opacity */
-  color: #ff0000;
-}
-
-@keyframes marquee {
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
-}
-
-@keyframes fadeOut {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
+  .warning {
+    display: none;
   }
 }
