@@ -15,7 +15,7 @@ const Navbar: React.FunctionComponent<INavbarProps> = () => {
   const [openIndicator, setOpenIndicator] = useState(false);
   const [showWarning, setShowWarning] = useState(true);
   const [openUser, setOpenUser] = useState(false);
-  const [user] = useState("tai");
+  const [user] = useState();
   const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -60,16 +60,18 @@ const Navbar: React.FunctionComponent<INavbarProps> = () => {
 
   useEffect(() => {
     const handleOverflow = () => {
-      document.body.classList.add("hidden_overflow");
+      if (window.innerWidth < 1200 && (openNavbar || openUser)) {
+        document.body.classList.add("hidden_overflow");
+      } else {
+        document.body.classList.remove("hidden_overflow");
+      }
     };
 
-    if (openNavbar || openUser) {
-      handleOverflow();
-    } else {
-      document.body.classList.remove("hidden_overflow");
-    }
+    window.addEventListener("resize", handleOverflow);
+    handleOverflow();
 
     return () => {
+      window.removeEventListener("resize", handleOverflow);
       document.body.classList.remove("hidden_overflow");
     };
   }, [openNavbar, openUser]);
@@ -109,7 +111,7 @@ const Navbar: React.FunctionComponent<INavbarProps> = () => {
           <div className="nav__panel-item nav__panel-items">
             <ul className="nav__panel-list">
               <li className="panel__list-item">
-                <a href="" className="panel__list-item--link">
+                <a href="/" className="panel__list-item--link">
                   <div className="panel__item-link--body">Home</div>
                 </a>
               </li>
@@ -236,7 +238,7 @@ const Navbar: React.FunctionComponent<INavbarProps> = () => {
               </li>
 
               <li className="panel__list-item">
-                <a href="" className="panel__list-item--link">
+                <a href="/indicator" className="panel__list-item--link">
                   <div className="panel__item-link--body">
                     Indicator
                     <img
@@ -296,7 +298,7 @@ const Navbar: React.FunctionComponent<INavbarProps> = () => {
                 </a>
               </li>
               <li className="panel__list-item">
-                <a href="" className="panel__list-item--link">
+                <a href="/contact" className="panel__list-item--link">
                   <div className="panel__item-link--body">Liên hệ</div>
                 </a>
               </li>
@@ -313,7 +315,7 @@ const Navbar: React.FunctionComponent<INavbarProps> = () => {
             <div className="nav__user-block">
               {user ? (
                 <>
-                  <a className="panel__list-item--link">
+                  <div className="panel__list-item--link">
                     <div
                       className="panel__item-link---body"
                       onClick={handleUserToggle}
@@ -324,7 +326,7 @@ const Navbar: React.FunctionComponent<INavbarProps> = () => {
                         className="panel__item-img--user"
                       />
                     </div>
-                  </a>
+                  </div>
                   <div
                     className={`navbar__user-box ${openUser ? "active" : ""}`}
                     ref={menuRef}
@@ -370,7 +372,7 @@ const Navbar: React.FunctionComponent<INavbarProps> = () => {
                   </div>
                 </>
               ) : (
-                <a className="panel__list-item--link">
+                <a href="/sign-in" className="panel__list-item--link">
                   <div className="panel__item-link---body">
                     <img
                       src={use_img}
@@ -519,7 +521,7 @@ const Navbar: React.FunctionComponent<INavbarProps> = () => {
               </li>
               <li className="Navbar__mobile-menu--item">
                 <div className="Navbar__mobile-menu--block">
-                  <a href="#" className="Navbar__mobile-menu--title">
+                  <a href="/indicator" className="Navbar__mobile-menu--title">
                     Indicator
                   </a>
                   <div
@@ -588,7 +590,7 @@ const Navbar: React.FunctionComponent<INavbarProps> = () => {
               </li>
               <li className="Navbar__mobile-menu--item">
                 <div className="Navbar__mobile-menu--block">
-                  <a href="#" className="Navbar__mobile-menu--title">
+                  <a href="/contact" className="Navbar__mobile-menu--title">
                     Liên hệ
                   </a>
                 </div>

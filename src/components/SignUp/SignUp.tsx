@@ -108,7 +108,7 @@ const SignUp: React.FC = () => {
             )}
           </div>
           <div className={Style.SignUp_box_sign_in}>
-            <a href="" className={Style.SignUp_link_sign_in}>
+            <a href="/sign-up" className={Style.SignUp_link_sign_in}>
               Đăng nhập
             </a>
           </div>

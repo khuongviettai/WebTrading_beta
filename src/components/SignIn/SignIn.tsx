@@ -21,7 +21,7 @@ const SignIn: React.FC = () => {
           </div>
           <div className={Style.SignIn_box_account}>
             <div className={Style.SignIn_box_sign_up}>
-              <a href="" className={Style.SignIn_link_sign_up}>
+              <a href="/sign-up" className={Style.SignIn_link_sign_up}>
                 Đăng ký
               </a>
             </div>
