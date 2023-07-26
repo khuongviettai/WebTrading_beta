@@ -31,3 +31,13 @@
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
 }
+.hidden_overflow {
+  overflow-y: hidden;
+}
+.active {
+  display: block !important;
+}
+
+.mobile_show {
+  display: block !important;
+}

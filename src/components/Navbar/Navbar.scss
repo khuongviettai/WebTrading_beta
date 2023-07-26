@@ -19,6 +19,7 @@
 .Navbar--fixed {
   position: fixed;
   top: 0;
+  z-index: 1;
 }
 .Navbar__panel-logo--name {
   display: contents;
@@ -259,8 +260,8 @@
 
 .Navbar__open-menu {
   display: none;
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
 }
 .panel__item-link__img {
   width: 20px;
@@ -272,8 +273,8 @@
 }
 
 .panel__item-img--user {
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
 }
 /* Navbar.scss */
 
@@ -322,6 +323,7 @@
     display: none;
   }
   .Navbar__panel {
+    max-width: 100%;
     height: 70px;
     display: flex;
     justify-content: space-between;
@@ -333,35 +335,39 @@
   }
   .Navbar__mobile {
     position: fixed;
+    z-index: 1;
     top: 0;
     display: none;
-    width: 60%;
+    width: 100%;
     height: 100%;
     overflow-y: scroll;
     background-color: #fff;
     box-shadow: 0 1px 15px rgba(0, 0, 0, 0.5);
-    transition-property: width;
-    transition-duration: 5s;
   }
-  .show {
-    display: block !important;
+
+  .Navbar__mobile .show {
+    left: 0;
+    z-index: 9999;
+    padding: 0;
   }
 
   .Navbar__mobile-wrap {
-    box-shadow: 0 1px 15px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 1px 15px rgba(0, 0, 0, 0.1);
   }
   .Navbar__mobile-close {
     height: 70px;
     display: flex;
     align-items: center;
     &--img {
+      width: 20px;
+      height: 20px;
       margin-left: auto;
       margin-right: 10px;
     }
   }
   .Navbar__mobile-menu {
     &--list {
-      padding: 20px;
+      padding: 5px 20px;
       list-style: none;
     }
     &--block {
@@ -373,14 +379,14 @@
       border-bottom: 1px solid rgba(0, 0, 0, 0.2);
     }
     &--title {
-      font-size: 20px;
+      font-size: 14px;
       font-weight: 600;
     }
 
     &--more {
       margin-left: auto;
-      width: 30px;
-      height: 30px;
+      width: 18px;
+      height: 18px;
     }
   }
 
@@ -408,5 +414,132 @@
   }
   .warning {
     display: none;
+  }
+}
+
+.navbar__user-box {
+  display: none;
+  position: absolute;
+  right: -10px;
+  margin-top: 10px;
+  width: 200px;
+  height: 300px;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 1px 15px rgba(0, 0, 0, 0.1);
+  word-wrap: break-word;
+  z-index: 99999;
+  padding: 10px;
+}
+
+.navbar__user-box:before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  right: 10px;
+  height: 20px;
+  width: 20px;
+  background: #fff;
+  transform: rotate(45deg);
+}
+
+.navbar__user-account {
+  font-size: 14px;
+  font-weight: 500;
+  margin-left: 10px;
+  word-break: break-all;
+}
+
+.user__dropdown-list {
+  width: 100%;
+  list-style: none;
+  margin-block-start: 0px;
+  margin-block-end: 0px;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.user__dropdown-item {
+  padding: 10px 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+
+  .user__dropdown-item--link {
+    max-width: 100px;
+    margin-left: 10px;
+    text-align: center;
+  }
+}
+.user__dropdown-item:last-child {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.user__dropdown-item--link:hover {
+  color: #ff9671;
+  cursor: pointer;
+}
+
+.user_log_out {
+  text-align: center;
+  cursor: pointer;
+  &:hover {
+    color: #ff9671;
+  }
+}
+
+.user__log_out_box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.navbar__user-mobile--close {
+  display: none;
+}
+
+@media only screen and (max-width: 1200px) {
+  .navbar__user-box {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    margin-top: 0;
+    padding: 0px;
+    right: 0px;
+    &::before {
+      height: 0px;
+      width: 0px;
+    }
+  }
+  .navbar__user-content {
+    width: 100%;
+    height: 100%;
+    margin-top: 70px;
+  }
+  .navbar__user-account {
+    font-size: 15;
+    font-weight: 500;
+  }
+  .navbar__user-account {
+    text-align: center;
+    font-size: 14px;
+  }
+  .user__dropdown-list {
+    text-align: center;
+    font-size: 14;
+  }
+  .navbar__user-mobile--close {
+    display: block;
+    position: absolute;
+    right: 15px;
+    top: 15px;
+  }
+  .user-mobile--close {
+    width: 20px;
+    height: 20px;
   }
 }

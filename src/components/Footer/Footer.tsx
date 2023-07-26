@@ -3,8 +3,38 @@ import "./Footer.scss";
 import message from "../../assets/icons/messenger.png";
 import telegram from "../../assets/icons/telegram.png";
 import facebook from "../../assets/icons/facebook.png";
+import { useFormik } from "formik";
+import * as Yup from "yup";
 
 const Footer: React.FC = () => {
+  const formik = useFormik({
+    initialValues: {
+      fullName: "",
+      phoneNumber: "",
+      email: "",
+      content: "",
+    },
+    validationSchema: Yup.object({
+      fullName: Yup.string()
+        .required("")
+        .min(5, "Họ và tên phải nhiều hơn 5 ký tự"),
+      phoneNumber: Yup.string()
+        .required("")
+        .matches(
+          /([\+84|84|0|0084]+(3|5|7|8|9|1[2|6|8|9]))+([0-9]{8})\b/, //eslint-disable-line
+          "Số điện thoại không hợp lệ"
+        ),
+      email: Yup.string()
+        .required("")
+        .matches(
+          /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+          "Email không hợp lệ"
+        ),
+    }),
+    onSubmit: (values) => {
+      console.log(values);
+    },
+  });
   return (
     <div className="Footer">
       <div className="container">
@@ -100,27 +130,54 @@ const Footer: React.FC = () => {
           <div className="col-lg-4 col-md-4 col-12">
             <div className="Footer__contact">
               <h3 className="Footer__contact-title">Liên hệ</h3>
-              <form action="" className="Footer__contact-form">
+              <form
+                action=""
+                className="Footer__contact-form"
+                onSubmit={formik.handleSubmit}
+              >
                 <div className="Footer__contact-form--box">
+                  {formik.errors.fullName && (
+                    <p className="footer__error-msg">
+                      {formik.errors.fullName}
+                    </p>
+                  )}
                   <input
                     type="text"
                     className="Footer__contact-form--input"
                     placeholder="Họ và tên*"
-                  />
-                </div>
-                <div className="Footer__contact-form--box">
-                  <input
-                    type="number"
-                    className="Footer__contact-form--input"
-                    placeholder="Số điện thoại*"
+                    name="fullName"
+                    value={formik.values.fullName}
+                    onChange={formik.handleChange}
                   />
                 </div>
 
                 <div className="Footer__contact-form--box">
+                  {formik.errors.phoneNumber && (
+                    <p className="footer__error-msg">
+                      {formik.errors.phoneNumber}
+                    </p>
+                  )}
                   <input
-                    type="text"
+                    type="number"
+                    className="Footer__contact-form--input"
+                    placeholder="Số điện thoại*"
+                    name="phoneNumber"
+                    value={formik.values.phoneNumber}
+                    onChange={formik.handleChange}
+                  />
+                </div>
+
+                <div className="Footer__contact-form--box">
+                  {formik.errors.email && (
+                    <p className="footer__error-msg">{formik.errors.email}</p>
+                  )}
+                  <input
+                    type="email"
                     className="Footer__contact-form--input"
                     placeholder="Email*"
+                    name="email"
+                    value={formik.values.email}
+                    onChange={formik.handleChange}
                   />
                 </div>
                 <div className="Footer__contact-form--box">

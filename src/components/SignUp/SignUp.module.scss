@@ -11,7 +11,7 @@
   }
   &_box {
     width: 626px;
-    height: 660px;
+    height: 600px;
     border-radius: 20px;
     border: #ff9671 solid 2px;
   }
@@ -170,6 +170,7 @@
     justify-content: center;
     &_box {
       border: none;
+      height: 100%;
       width: 90%;
     }
     &_form_box_confirm {

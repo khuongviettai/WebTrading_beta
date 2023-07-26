@@ -1,17 +1,36 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./Navbar.scss";
 import expand from "../../assets/icons/expand.png";
 import menu from "../../assets/icons/menu.png";
-import user from "../../assets/icons/account_circle.png";
+import use_img from "../../assets/icons/account_circle.png";
 import close from "../../assets/icons/close.png";
 
-const Navbar: React.FC = () => {
+export interface INavbarProps {}
+
+const Navbar: React.FunctionComponent<INavbarProps> = () => {
   const [isNavbarFixed, setNavbarFixed] = useState(false);
   const [openNavbar, setOpenNavbar] = useState(false);
   const [openKnowledge, setOpenKnowledge] = useState(false);
   const [openForex, setOpenForex] = useState(false);
   const [openIndicator, setOpenIndicator] = useState(false);
   const [showWarning, setShowWarning] = useState(true);
+  const [openUser, setOpenUser] = useState(false);
+  const [user] = useState("tai");
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
+        setOpenUser(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handler);
+
+    return () => {
+      document.removeEventListener("mousedown", handler);
+    };
+  }, [menuRef]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -38,6 +57,26 @@ const Navbar: React.FC = () => {
       clearTimeout(hideWarningTimeout);
     };
   }, []);
+
+  useEffect(() => {
+    const handleOverflow = () => {
+      document.body.classList.add("hidden_overflow");
+    };
+
+    if (openNavbar || openUser) {
+      handleOverflow();
+    } else {
+      document.body.classList.remove("hidden_overflow");
+    }
+
+    return () => {
+      document.body.classList.remove("hidden_overflow");
+    };
+  }, [openNavbar, openUser]);
+
+  const handleUserToggle = () => {
+    setOpenUser(!openUser);
+  };
 
   const handleKnowledge = () => {
     setOpenKnowledge(!openKnowledge);
@@ -272,21 +311,81 @@ const Navbar: React.FC = () => {
           </div> */}
           <div className="nav__panel-user">
             <div className="nav__user-block">
-              <a className="panel__list-item--link">
-                <div className="panel__item-link---body">
-                  <img
-                    src={user}
-                    alt="user"
-                    className="panel__item-img--user"
-                  />
-                </div>
-              </a>
+              {user ? (
+                <>
+                  <a className="panel__list-item--link">
+                    <div
+                      className="panel__item-link---body"
+                      onClick={handleUserToggle}
+                    >
+                      <img
+                        src={use_img}
+                        alt="user"
+                        className="panel__item-img--user"
+                      />
+                    </div>
+                  </a>
+                  <div
+                    className={`navbar__user-box ${openUser ? "active" : ""}`}
+                    ref={menuRef}
+                  >
+                    <div
+                      className="navbar__user-mobile--close"
+                      onClick={handleUserToggle}
+                    >
+                      <img
+                        src={close}
+                        alt="close"
+                        className="user-mobile--close"
+                      />
+                    </div>
+                    <div className="navbar__user-content">
+                      <h5 className="navbar__user-account">{user}</h5>
+                      <ul className="user__dropdown-list">
+                        <li className="user__dropdown-item">
+                          <a href="" className="user__dropdown-item--link">
+                            Thông tin cá nhân
+                          </a>
+                        </li>
+                        <li className="user__dropdown-item">
+                          <a href="" className="user__dropdown-item--link">
+                            Bài viết của tôi
+                          </a>
+                        </li>
+                        <li className="user__dropdown-item">
+                          <a href="" className="user__dropdown-item--link">
+                            Nhật ký giao dịch
+                          </a>
+                        </li>
+                        {/* <li className="user__dropdown-item">
+                          <a href="" className="user__dropdown-item--link">
+                            Profile
+                          </a>
+                        </li> */}
+                      </ul>
+                      <div className="user__log_out_box">
+                        <span className="user_log_out">Đăng xuất</span>
+                      </div>
+                    </div>
+                  </div>
+                </>
+              ) : (
+                <a className="panel__list-item--link">
+                  <div className="panel__item-link---body">
+                    <img
+                      src={use_img}
+                      alt="user"
+                      className="panel__item-img--user"
+                    />
+                  </div>
+                </a>
+              )}
             </div>
           </div>
         </div>
       </div>
       {/* mobile */}
-      <div className={`Navbar__mobile ${openNavbar ? "show" : ""}`}>
+      <div className={`Navbar__mobile ${openNavbar ? "mobile_show" : ""}`}>
         <div className="container-fix Navbar__mobile-wrap">
           <div className="Navbar__mobile-close" onClick={handleNavbarToggle}>
             <img src={close} className="Navbar__mobile-close--img" />
@@ -319,7 +418,7 @@ const Navbar: React.FC = () => {
 
                 <div
                   className={`Navbar__mobile-subMenu--knowledge ${
-                    openKnowledge ? "show" : ""
+                    openKnowledge ? "mobile_show" : ""
                   }`}
                 >
                   <div className="Navbar__mobile-subMenu--body">
@@ -374,7 +473,7 @@ const Navbar: React.FC = () => {
                 </div>
                 <div
                   className={`Navbar__mobile-subMenu--forex ${
-                    openForex ? "show" : ""
+                    openForex ? "mobile_show" : ""
                   }`}
                 >
                   <div className="Navbar__mobile-subMenu--body">
@@ -436,7 +535,7 @@ const Navbar: React.FC = () => {
                 </div>
                 <div
                   className={`Navbar__mobile-subMenu--indicator ${
-                    openIndicator ? "show" : ""
+                    openIndicator ? "mobile_show" : ""
                   }`}
                 >
                   <div className="Navbar__mobile-subMenu--body">
