@@ -26,7 +26,10 @@ const SignIn: React.FC = () => {
               </a>
             </div>
             <div className={Style.SignIn_box_forgot_password}>
-              <a href="" className={Style.SignIn_link_forgot_password}>
+              <a
+                href="/forgot-password"
+                className={Style.SignIn_link_forgot_password}
+              >
                 Quên mật khẩu?
               </a>
             </div>

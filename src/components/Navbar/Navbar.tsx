@@ -281,7 +281,7 @@ const Navbar: React.FunctionComponent<INavbarProps> = () => {
                 </a>
               </li>
               <li className="panel__list-item">
-                <a href="" className="panel__list-item--link">
+                <a href="/trading-journal" className="panel__list-item--link">
                   <div className="panel__item-link--body">
                     Nhật ký giao dịch
                   </div>
@@ -355,7 +355,10 @@ const Navbar: React.FunctionComponent<INavbarProps> = () => {
                           </a>
                         </li>
                         <li className="user__dropdown-item">
-                          <a href="" className="user__dropdown-item--link">
+                          <a
+                            href="/trading-journal"
+                            className="user__dropdown-item--link"
+                          >
                             Nhật ký giao dịch
                           </a>
                         </li>

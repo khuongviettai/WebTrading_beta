@@ -72,7 +72,7 @@ app.use("*", async (req, res) => {
 // server
 dotenv.config();
 app.use(cors());
-app.use(express.json());
+
 // Connect to MongoDB
 mongoose.set("strictQuery", false);
 
