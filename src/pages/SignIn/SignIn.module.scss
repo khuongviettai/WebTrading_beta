@@ -1,0 +1,160 @@
+.SignIn {
+  height: 100vh;
+  background-image: linear-gradient(
+    to right top,
+    #845ec2,
+    #a55dbd,
+    #c15db5,
+    #d95fab,
+    #ec64a0,
+    #f76e91,
+    #fd7b84,
+    #ff8a7a,
+    #ffa26e,
+    #ffbd66,
+    #ffda65,
+    #f9f871
+  );
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.SignIn_wrap {
+  width: 390px;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  padding-right: 55px;
+  padding-left: 55px;
+  padding-bottom: 54px;
+  padding-top: 65px;
+  //   padding: 65px 55px 54px 55px;
+}
+
+.SignIn_title {
+  text-align: center;
+}
+
+.SignIn_form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  // justify-content: center;
+  margin-top: 30px;
+  padding: 12px 0;
+}
+.SignIn_box {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: calc(10px / 2);
+  margin-right: calc(10px / 2);
+  margin-bottom: 40px;
+}
+.SignIn_input {
+  min-height: 40px;
+  padding: 3px 14px;
+  border-radius: 10px;
+  background-color: #fff;
+  flex-basis: 100%;
+  max-width: 100%;
+  width: 100%;
+  border: 1px solid #818a91;
+  color: #373a3c;
+  vertical-align: middle;
+  flex-grow: 1;
+  &:focus {
+    outline: #ff9671 solid 1px;
+    border: #ff9671 solid 1px;
+  }
+}
+
+.SignIn_box_label {
+  margin-left: 19px;
+  position: absolute;
+  margin-top: -9px;
+  background-color: #fff;
+  padding: 0 5px;
+}
+
+.SignIn_box_btn {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: calc(10px / 2);
+  margin-right: calc(10px / 2);
+  margin-bottom: 10px;
+  :hover {
+    box-shadow: 0 1px 15px rgba(0, 0, 0, 0.3);
+  }
+}
+
+.SignIn_btn {
+  min-height: 40px;
+  padding: 3px 14px;
+  border-radius: 10px;
+  flex-basis: 100%;
+  max-width: 100%;
+  width: 100%;
+  vertical-align: middle;
+  flex-grow: 1;
+
+  color: #fff;
+  flex-basis: 100%;
+  background-color: #ff9671;
+  min-height: 40px;
+  border: none;
+  cursor: pointer;
+}
+
+.SignIn_box_account {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.SignIn_box_account_sign_up {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.SignIn_box_account_link {
+  color: #ff8a7a;
+  font-size: 14px;
+  font-weight: bold;
+  margin-left: 2px;
+}
+
+.SignIn_box_account_forgot_password {
+  margin-top: 10px;
+  text-align: center;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1200px) {
+  .SignIn {
+    display: flex;
+    justify-content: center;
+  }
+
+  .SignIn_wrap {
+    width: 50%;
+    padding: 15px;
+  }
+  .SignIn_box {
+    height: 100%;
+    width: 100%;
+    margin-left: calc(10px / 2);
+    margin-right: calc(10px / 2);
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .SignIn_wrap {
+    width: 90%;
+    padding: 15px;
+  }
+}
