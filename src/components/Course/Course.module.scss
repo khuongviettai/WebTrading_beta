@@ -1,0 +1,34 @@
+.Course {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.Course_box{
+  padding: 0 15px;
+}
+
+
+.Course_img{
+  height: 150px;
+  width: 350px;
+}
+
+.Course_user_box{
+  margin-top: 5px;
+}
+.Course_box_date_post{
+  margin-right: 5px;
+}
+
+.Course_box_user_img{
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+
+.Course_box_user_name{
+  display: flex;
+}

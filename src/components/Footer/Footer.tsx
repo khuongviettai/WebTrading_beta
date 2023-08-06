@@ -1,6 +1,8 @@
+"use client";
 import React, { useState } from "react";
 import styles from "./Footer.module.scss";
 import expand_more from "../../assets/icons/expand_more.png";
+import Image from "next/image";
 
 export interface IFooter {}
 
@@ -58,7 +60,7 @@ const Footer: React.FunctionComponent<IFooter> = () => {
                   className={styles.Footer_reference_mobile_box_img}
                   onClick={handleOpenReference}
                 >
-                  <img
+                  <Image
                     src={expand_more}
                     alt="expand more"
                     className={styles.Footer_reference_mobile_img_expand}
@@ -115,7 +117,7 @@ const Footer: React.FunctionComponent<IFooter> = () => {
                   className={styles.Footer_forex_mobile_box_img}
                   onClick={handleOpenForex}
                 >
-                  <img
+                  <Image
                     src={expand_more}
                     alt="expand more"
                     className={styles.Footer_forex_mobile_img_expand}
@@ -160,7 +162,7 @@ const Footer: React.FunctionComponent<IFooter> = () => {
                   className={styles.Footer_community_mobile_box_img}
                   onClick={handleOpenCommunity}
                 >
-                  <img
+                  <Image
                     src={expand_more}
                     alt="expand more"
                     className={styles.Footer_community_mobile_img_expand}

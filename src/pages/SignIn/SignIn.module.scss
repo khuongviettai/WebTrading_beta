@@ -29,10 +29,7 @@
   background: #fff;
   border-radius: 10px;
   overflow: hidden;
-  padding-right: 55px;
-  padding-left: 55px;
-  padding-bottom: 54px;
-  padding-top: 65px;
+  padding: 65px 55px 54px;
   //   padding: 65px 55px 54px 55px;
 }
 
@@ -132,6 +129,93 @@
 .SignIn_box_account_forgot_password {
   margin-top: 10px;
   text-align: center;
+}
+
+.SignIn_box_other_sign_in {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.SignIn_box_other_sign_in_line {
+  background: #989797;
+
+  width: 30%;
+}
+
+.SignIn_box_other_sign_in_text {
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+  margin: 0 10px;
+}
+
+.SignIn_box_other {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.SignIn_box_other_facebook {
+  height: 45px;
+  flex-shrink: 0;
+  width: 45%;
+  border: 1px solid #ff9142;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  cursor: pointer;
+  background-color: #ffffff;
+}
+.SignIn_box_other_google {
+  height: 45px;
+  flex-shrink: 0;
+  width: 45%;
+  background-color: #ffffff;
+  border: 1px solid #ff9142;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.SignIn_box_other_google_img {
+  height: 50px;
+  flex-shrink: 0;
+  width: 100px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.SignIn_box_other_google_img {
+  width: 30px;
+  height: 30px;
+}
+.SignIn_box_other_facebook_img {
+  width: 30px;
+  height: 30px;
+}
+
+.SignIn_input_box{
+  max-width: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.SignIn_img_visibility{
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
 }
 
 @media only screen and (min-width: 768px) and (max-width: 1200px) {

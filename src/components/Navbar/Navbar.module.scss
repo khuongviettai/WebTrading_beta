@@ -3,7 +3,7 @@
   height: 69px;
   width: 100%;
   background: rgba(255, 255, 255, 0.8);
-  border-bottom: 1px solid #00000026;
+  // border-bottom: 1px solid #00000026;
   &_wrap {
     display: flex;
     -webkit-box-align: center;
@@ -22,7 +22,7 @@
   &_logo_title {
     display: contents;
     font-size: 15px;
-    font-family: GoblinOne-Regular;
+    font-family: GoblinOne-Regular, sans-serif;
   }
   &_panel_list {
     height: inherit;
@@ -46,7 +46,7 @@
           cursor: pointer;
           font-size: 14px;
           font-weight: 600;
-          padding-right: 27px;
+
           display: flex;
           transition: background-color 0.2s;
           padding: 0 14px;
@@ -72,9 +72,9 @@
   filter: invert(100%);
 }
 
-.Navbar_panel_list:hover .Navbar_panel_list_item_link_img {
-  background-color: none;
-}
+//.Navbar_panel_list:hover .Navbar_panel_list_item_link_img {
+//  background-color: initial;
+//}
 
 .Navbar_panel_list_item:hover {
   background-color: #ff9671;
@@ -206,11 +206,11 @@
 
 .Navbar_user_list {
   list-style: none;
-  margin-block-start: 0em;
-  margin-block-end: 0em;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
-  padding-inline-start: 0px;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+  padding-inline-start: 0;
 }
 
 .Navbar_user_list_item {
@@ -371,10 +371,9 @@
     margin-right: 10px;
   }
   .Navbar_wrap_logo {
-    margin-right: 0px;
+    margin-right: 0;
   }
   .Navbar_mobile_menu_list {
-    padding: 0;
     margin: 0;
     display: flex;
     list-style: none;
@@ -382,7 +381,7 @@
     flex-direction: column;
   }
   .Navbar_mobile_menu_list_item {
-    display: flex;
+
     border-bottom: #0000000f;
     display: block;
     text-align: left;
@@ -410,7 +409,6 @@
     border-bottom: 1px solid rgba(0, 0, 0, 0.06);
   }
   .Navbar_mobile_subMenu_list {
-    padding: 0;
     padding-left: 10px;
   }
   .Navbar_mobile_subMenu_item {
@@ -434,13 +432,12 @@
     width: 100%;
     color: #fff;
     top: 0;
-    margin-top: 0;
-    padding: 0px;
-    right: 0px;
+    padding: 0;
+    right: 0;
     overflow-x: hidden;
     overflow-y: scroll;
-    border-radius: 0px;
-    margin-top: 0px;
+    border-radius: 0;
+    margin-top: 0;
     transform: translateX(100%);
     -webkit-transition: all 0.3s ease;
     -moz-transition: all 0.3s ease;
@@ -451,7 +448,7 @@
     position: absolute;
     top: -5px;
     right: 10px;
-    height: 0px;
+    height: 0;
     width: 00px;
     background: #fff;
     transform: rotate(45deg);
@@ -475,7 +472,7 @@
     height: 20px;
   }
   .Navbar_user_box_info_content {
-    padding: 0px;
+    padding: 0;
   }
   .Navbar_user_list_item {
     text-align: center;
@@ -536,3 +533,5 @@
 //     height: 69px;
 //   }
 // }
+
+

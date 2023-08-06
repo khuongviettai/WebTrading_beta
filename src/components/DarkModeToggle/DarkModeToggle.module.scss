@@ -1,0 +1,18 @@
+.DarkModeToggle {
+  width: 30px;
+  height: 30px;
+  //border: 1.5px solid #53c28b70;
+  //border-radius: 30px;
+  margin-left: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2px;
+  position: relative;
+  cursor: pointer;
+}
+
+.icon {
+  font-size: 20px;
+}
+

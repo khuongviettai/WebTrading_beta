@@ -1,3 +1,4 @@
+
 .show {
   display: block !important;
 }
@@ -8,4 +9,42 @@
 
 .hidden_overflow {
   overflow-y: hidden;
+}
+
+.error_msg{
+  color: red;
+  font-size: 12px;
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
+.theme {
+  transition: 1s all ease;
+}
+
+.light {
+  background-color: #ffffff;
+  color: #111;
+}
+
+.dark {
+  color: #f3f5f3 !important;
+  background: #1f2029 !important;
+}
+
+.dark h1,
+.dark h2,
+.dark h3,
+.dark h4,
+.dark h5,
+.dark h6 {
+  color: #f3f5f3 !important;
+}
+
+.dark span {
+  color: #f3f5f3 !important;
+}
+
+.dark a {
+  color: #f3f5f3 !important;
 }

@@ -29,10 +29,7 @@
   background: #fff;
   border-radius: 10px;
   overflow: hidden;
-  padding-right: 55px;
-  padding-left: 55px;
-  padding-bottom: 54px;
-  padding-top: 65px;
+  padding: 65px 55px 54px;
   //   padding: 65px 55px 54px 55px;
 }
 
@@ -55,7 +52,14 @@
   flex-wrap: wrap;
   margin-left: calc(10px / 2);
   margin-right: calc(10px / 2);
-  margin-bottom: 40px;
+  margin-bottom: 20px;
+}
+.SignUp_input_box{
+  max-width: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
 
 .SignUp_input {
@@ -97,11 +101,8 @@
 }
 
 .SignUp_btn {
-  min-height: 40px;
   padding: 3px 14px;
   border-radius: 10px;
-  flex-basis: 100%;
-  max-width: 100%;
   width: 100%;
   vertical-align: middle;
   flex-grow: 1;
@@ -147,6 +148,83 @@
     margin-left: calc(10px / 2);
     margin-right: calc(10px / 2);
   }
+}
+
+.SignUp_box_other_sign_up {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.SignUp_box_other_sign_in_line {
+  background: #989797;
+  width: 30%;
+}
+
+.SignUp_box_other_sign_in_text {
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin: 0 10px;
+}
+
+.SignUp_img_visibility{
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+.SignUp_box_other {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.SignUp_box_other_facebook {
+  height: 45px;
+  flex-shrink: 0;
+  width: 45%;
+  border: 1px solid #ff9142;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  cursor: pointer;
+}
+.SignUp_box_other_google {
+  height: 45px;
+  flex-shrink: 0;
+  width: 45%;
+
+  border: 1px solid #ff9142;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.SignUp_box_other_google_img {
+  height: 50px;
+  flex-shrink: 0;
+  width: 100px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.SignUp_box_other_google_img {
+  width: 30px;
+  height: 30px;
+}
+.SignUp_box_other_facebook_img {
+  width: 30px;
+  height: 30px;
 }
 
 @media only screen and (max-width: 576px) {

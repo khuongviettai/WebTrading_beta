@@ -1,11 +1,14 @@
-import React, { useState, useRef, useEffect } from "react";
-import styles from "./Navbar.module.scss";
-import expand_more from "../../assets/icons/expand_more.png";
-import account from "../../assets/icons/account_circle.png";
-import menu from "../../assets/icons/menu.png";
-import close from "../../assets/icons/close.png";
-import add from "../../assets/icons/add.png";
-import remove from "../../assets/icons/remove.png";
+'use client';
+import React, { useState, useRef, useEffect } from 'react';
+import styles from './Navbar.module.scss';
+import expand_more from '../../assets/icons/expand_more.png';
+import account from '../../assets/icons/account_circle.png';
+import menu from '../../assets/icons/menu.png';
+import close from '../../assets/icons/close.png';
+import add from '../../assets/icons/add.png';
+import remove from '../../assets/icons/remove.png';
+import Image from 'next/image';
+import Link from 'next/link';
 
 export interface INavbar {}
 
@@ -56,10 +59,10 @@ const Navbar: React.FunctionComponent<INavbar> = () => {
       }
     };
 
-    document.addEventListener("mousedown", handler);
+    document.addEventListener('mousedown', handler);
 
     return () => {
-      document.removeEventListener("mousedown", handler);
+      document.removeEventListener('mousedown', handler);
     };
   }, [menuRef]);
 
@@ -73,34 +76,34 @@ const Navbar: React.FunctionComponent<INavbar> = () => {
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
   useEffect(() => {
     const handleOverflow = () => {
       if (window.innerWidth < 1200 && (openNavbar || openUser)) {
-        document.body.classList.add("hidden_overflow");
+        document.body.classList.add('hidden_overflow');
       } else {
-        document.body.classList.remove("hidden_overflow");
+        document.body.classList.remove('hidden_overflow');
       }
     };
 
-    window.addEventListener("resize", handleOverflow);
+    window.addEventListener('resize', handleOverflow);
     handleOverflow();
 
     return () => {
-      window.removeEventListener("resize", handleOverflow);
-      document.body.classList.remove("hidden_overflow");
+      window.removeEventListener('resize', handleOverflow);
+      document.body.classList.remove('hidden_overflow');
     };
   }, [openNavbar, openUser]);
   return (
     <div
       className={`${styles.Navbar} ${
-        isNavbarFixed ? styles.Navbar_fixed : ""
+        isNavbarFixed ? styles.Navbar_fixed : ''
       } `}
     >
       <div className="container">
@@ -109,40 +112,40 @@ const Navbar: React.FunctionComponent<INavbar> = () => {
             className={styles.Navbar_mobile_open_menu}
             onClick={handleNavbarToggle}
           >
-            <img
+            <Image
               src={menu}
               alt="Menu"
               className={styles.Navbar_mobile_open_menu_img}
             />
           </div>
           <div className={styles.Navbar_wrap_logo}>
-            <a href="">
+            <a href="/">
               <div className={styles.Navbar_logo_title}>KhuongVietTai</div>
             </a>
           </div>
           <div className={styles.Navbar_wrap_panel}>
             <ul className={styles.Navbar_panel_list}>
               <li className={styles.Navbar_panel_list_item}>
-                <a href="#" className={styles.Navbar_panel_list_item_link}>
-                  <div className={styles.Navbar_panel_list_item_link_body}>
+                <a href="/" className={styles.Navbar_panel_list_item_link}>
+                  <span className={styles.Navbar_panel_list_item_link_body}>
                     Home
-                  </div>
+                  </span>
                 </a>
               </li>
               <li className={styles.Navbar_panel_list_item}>
                 <a href="#" className={styles.Navbar_panel_list_item_link}>
-                  <div
+                  <span
                     className={styles.Navbar_panel_list_item_link_body}
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
                   >
                     Tham khảo
-                    <img
+                    <Image
                       src={expand_more}
                       alt="expand_more"
                       className={styles.Navbar_panel_list_item_link_img}
                     />
-                  </div>
+                  </span>
                 </a>
                 <div className={styles.subMenu}>
                   <div className={styles.subMenu_body}>
@@ -191,18 +194,18 @@ const Navbar: React.FunctionComponent<INavbar> = () => {
               </li>
               <li className={styles.Navbar_panel_list_item}>
                 <a href="#" className={styles.Navbar_panel_list_item_link}>
-                  <div
+                  <span
                     className={styles.Navbar_panel_list_item_link_body}
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
                   >
                     Forex
-                    <img
+                    <Image
                       src={expand_more}
                       alt="expand_more"
                       className={styles.Navbar_panel_list_item_link_img}
                     />
-                  </div>
+                  </span>
                 </a>
                 <div className={styles.subMenu}>
                   <div className={styles.subMenu_body}>
@@ -220,7 +223,8 @@ const Navbar: React.FunctionComponent<INavbar> = () => {
                             </li>
                             <li className={styles.subMenu_list_item}>
                               <a
-                                href=""
+                                target="_blank"
+                                href="https://www.forexfactory.com/calendar"
                                 className={styles.subMenu_list_item_link}
                               >
                                 Lịch kinh tế
@@ -251,18 +255,18 @@ const Navbar: React.FunctionComponent<INavbar> = () => {
               </li>
               <li className={styles.Navbar_panel_list_item}>
                 <a href="#" className={styles.Navbar_panel_list_item_link}>
-                  <div
+                  <span
                     className={styles.Navbar_panel_list_item_link_body}
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
                   >
                     Cộng đồng
-                    <img
+                    <Image
                       src={expand_more}
                       alt="expand_more"
                       className={styles.Navbar_panel_list_item_link_img}
                     />
-                  </div>
+                  </span>
                 </a>
                 <div className={styles.subMenu}>
                   <div className={styles.subMenu_body}>
@@ -288,7 +292,8 @@ const Navbar: React.FunctionComponent<INavbar> = () => {
                             </li>
                             <li className={styles.subMenu_list_item}>
                               <a
-                                href=""
+                                target="_blank"
+                                href="youtube.com/@khuongviettai"
                                 className={styles.subMenu_list_item_link}
                               >
                                 Youtube
@@ -296,7 +301,8 @@ const Navbar: React.FunctionComponent<INavbar> = () => {
                             </li>
                             <li className={styles.subMenu_list_item}>
                               <a
-                                href=""
+                                target="_blank"
+                                href="https://twitter.com/khuongviettai"
                                 className={styles.subMenu_list_item_link}
                               >
                                 Twitter
@@ -311,16 +317,19 @@ const Navbar: React.FunctionComponent<INavbar> = () => {
               </li>
               <li className={styles.Navbar_panel_list_item}>
                 <a href="#" className={styles.Navbar_panel_list_item_link}>
-                  <div className={styles.Navbar_panel_list_item_link_body}>
+                  <span className={styles.Navbar_panel_list_item_link_body}>
                     Nhật ký giao dịch
-                  </div>
+                  </span>
                 </a>
               </li>
               <li className={styles.Navbar_panel_list_item}>
-                <a href="#" className={styles.Navbar_panel_list_item_link}>
-                  <div className={styles.Navbar_panel_list_item_link_body}>
+                <a
+                  href="/contact"
+                  className={styles.Navbar_panel_list_item_link}
+                >
+                  <span className={styles.Navbar_panel_list_item_link_body}>
                     Liên hệ
-                  </div>
+                  </span>
                 </a>
               </li>
             </ul>
@@ -333,7 +342,7 @@ const Navbar: React.FunctionComponent<INavbar> = () => {
                     className={styles.Navbar_user_box}
                     onClick={handleUserToggle}
                   >
-                    <img
+                    <Image
                       src={account}
                       alt="account"
                       className={styles.Navbar_user_box_img}
@@ -353,7 +362,7 @@ const Navbar: React.FunctionComponent<INavbar> = () => {
                           className={styles.Navbar_mobile_close_user_box}
                           onClick={handleUserToggle}
                         >
-                          <img
+                          <Image
                             src={close}
                             alt="close"
                             className={styles.Navbar_mobile_close_user}
@@ -403,11 +412,11 @@ const Navbar: React.FunctionComponent<INavbar> = () => {
                   </div>
                 </>
               ) : (
-                <a href="/sign-in" className={styles.Navbar_user_link}>
+                <a href="/auth/sign-in" className={styles.Navbar_user_link}>
                   <span className={styles.Navbar_user_link_sign_in}>
                     Đăng nhập
                   </span>
-                  <img
+                  <Image
                     src={account}
                     alt="account"
                     className={styles.Navbar_mobile_user}
@@ -421,7 +430,7 @@ const Navbar: React.FunctionComponent<INavbar> = () => {
       {/* mobile */}
       <div
         className={`${styles.Navbar_mobile} ${
-          openNavbar ? styles.Navbar_mobile_menu_show : ""
+          openNavbar ? styles.Navbar_mobile_menu_show : ''
         }`}
       >
         <div className={styles.Navbar_mobile_wrap}>
@@ -429,7 +438,7 @@ const Navbar: React.FunctionComponent<INavbar> = () => {
             className={styles.Navbar_mobile_close}
             onClick={handleNavbarToggle}
           >
-            <img
+            <Image
               src={close}
               alt="close"
               className={styles.Navbar_mobile_close_img}
@@ -441,9 +450,9 @@ const Navbar: React.FunctionComponent<INavbar> = () => {
             <ul className={styles.Navbar_mobile_menu_list}>
               <li className={styles.Navbar_mobile_menu_list_item}>
                 <div className={styles.Navbar_mobile_menu_more_wrap}>
-                  <a href="#" className={styles.Navbar_mobile_menu_link}>
+                  <Link href="/" className={styles.Navbar_mobile_menu_link}>
                     Home
-                  </a>
+                  </Link>
                 </div>
               </li>
               <li className={styles.Navbar_mobile_menu_list_item}>
@@ -455,9 +464,9 @@ const Navbar: React.FunctionComponent<INavbar> = () => {
                     className={styles.Navbar_mobile_menu_more_box}
                     onClick={handleReferenceToggle}
                   >
-                    <img
+                    <Image
                       src={openReference ? remove : add}
-                      alt={openReference ? "remove" : "add"}
+                      alt={openReference ? 'remove' : 'add'}
                       className={styles.Navbar_mobile_menu_more_img}
                     />
                   </div>
@@ -465,7 +474,7 @@ const Navbar: React.FunctionComponent<INavbar> = () => {
                 {/* <div className={styles.Navbar_mobile_subMenu}> */}
                 <ul
                   className={`${styles.Navbar_mobile_subMenu_list} ${
-                    openReference ? "m-show" : "m-hidden"
+                    openReference ? 'm-show' : 'm-hidden'
                   }`}
                 >
                   <li className={styles.Navbar_mobile_subMenu_item}>
@@ -500,16 +509,16 @@ const Navbar: React.FunctionComponent<INavbar> = () => {
                     className={styles.Navbar_mobile_menu_more_box}
                     onClick={handleForexToggle}
                   >
-                    <img
+                    <Image
                       src={openForex ? remove : add}
-                      alt={openForex ? "remove" : "add"}
+                      alt={openForex ? 'remove' : 'add'}
                       className={styles.Navbar_mobile_menu_more_img}
                     />
                   </div>
                 </div>
                 <ul
                   className={`${styles.Navbar_mobile_subMenu_list} ${
-                    openForex ? "m-show" : "m-hidden"
+                    openForex ? 'm-show' : 'm-hidden'
                   }`}
                 >
                   <li className={styles.Navbar_mobile_subMenu_item}>
@@ -518,7 +527,11 @@ const Navbar: React.FunctionComponent<INavbar> = () => {
                     </a>
                   </li>
                   <li className={styles.Navbar_mobile_subMenu_item}>
-                    <a href="" className={styles.Navbar_mobile_subMenu_link}>
+                    <a
+                      target="_blank"
+                      href="https://www.forexfactory.com/calendar"
+                      className={styles.Navbar_mobile_subMenu_link}
+                    >
                       Lịch kinh tế
                     </a>
                   </li>
@@ -543,16 +556,16 @@ const Navbar: React.FunctionComponent<INavbar> = () => {
                     className={styles.Navbar_mobile_menu_more_box}
                     onClick={handleCommunityToggle}
                   >
-                    <img
+                    <Image
                       src={openCommunity ? remove : add}
-                      alt={openCommunity ? "remove" : "add"}
+                      alt={openCommunity ? 'remove' : 'add'}
                       className={styles.Navbar_mobile_menu_more_img}
                     />
                   </div>
                 </div>
                 <ul
                   className={`${styles.Navbar_mobile_subMenu_list} ${
-                    openCommunity ? "m-show" : "m-hidden"
+                    openCommunity ? 'm-show' : 'm-hidden'
                   }`}
                 >
                   <li className={styles.Navbar_mobile_subMenu_item}>
@@ -566,12 +579,20 @@ const Navbar: React.FunctionComponent<INavbar> = () => {
                     </a>
                   </li>
                   <li className={styles.Navbar_mobile_subMenu_item}>
-                    <a href="" className={styles.Navbar_mobile_subMenu_link}>
+                    <a
+                      target="_blank"
+                      href="youtube.com/@khuongviettai"
+                      className={styles.Navbar_mobile_subMenu_link}
+                    >
                       Youtube
                     </a>
                   </li>
                   <li className={styles.Navbar_mobile_subMenu_item}>
-                    <a href="" className={styles.Navbar_mobile_subMenu_link}>
+                    <a
+                      target="_blank"
+                      href="https://twitter.com/khuongviettai"
+                      className={styles.Navbar_mobile_subMenu_link}
+                    >
                       Twitter
                     </a>
                   </li>
@@ -586,7 +607,7 @@ const Navbar: React.FunctionComponent<INavbar> = () => {
               </li>
               <li className={styles.Navbar_mobile_menu_list_item}>
                 <div className={styles.Navbar_mobile_menu_more_wrap}>
-                  <a href="#" className={styles.Navbar_mobile_menu_link}>
+                  <a href="/contact" className={styles.Navbar_mobile_menu_link}>
                     Liên hệ
                   </a>
                 </div>

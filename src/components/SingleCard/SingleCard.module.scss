@@ -1,0 +1,64 @@
+.SingleCard{
+  box-sizing: border-box;
+  margin-top: 30px;
+}
+
+.SingleCard_image{
+  width: 550px;
+  height: 550px;
+  display: block;
+  max-width: 100%;
+  border: none;
+  line-height: 1;
+}
+
+.SingleCard_box_image{
+  position: relative;
+  max-width: 650px;
+  margin: 0 auto;
+  background: #fff;
+}
+.SingleCard_info_title{
+  display: flex;
+  flex-wrap: wrap;
+}
+.SingleCard_info_title{
+  font-size: 26px;
+  font-family: "SF Pro Display", sans-serif;
+  margin-bottom: 18px;
+  color: #000;
+}
+
+.SingleCard_des{
+  margin-top: 50px;
+  position: relative;
+}
+
+.SingleCard_des_title{
+  font-size: 18px;
+  margin-bottom: 8px;
+  font-weight: 600 !important;
+}
+
+.SingleCard_des_info{
+  margin-bottom: 10px;
+  line-height: 24px;
+  text-align: justify;
+}
+
+.SingleCard_box_download{
+  margin-top: 20px;
+  width: 100%;
+  background-color: #ea8025;
+  height: 50px;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.SingleCard_box_download_link{
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 600;
+}
