@@ -1,22 +1,23 @@
-import { NextApiRequest, NextApiResponse } from "next";
-import User from "../../../../../models/User";
-import connect from "../../../../../server/database";
-import bcrypt from "bcryptjs";
-import { NextResponse } from "next/server";
+import User from '../../../../../models/User';
+import connect from '../../../../../server/database';
+import bcrypt from 'bcryptjs';
+import { NextResponse } from 'next/server';
 
-export const POST = async (
-  request: NextApiRequest,
-  response: NextApiResponse
-) => {
-  if (request.method !== "POST") {
-    return response.status(405).end();
-  }
-
-  const { name, email, password } = request.body;
+export const POST = async (req: any, res: any) => {
+  const { name, email, password } = await req.json();
 
   await connect();
 
-  const hashedPassword = await bcrypt.hash(password, 5);
+  // Check if the email already exists in the database
+  const existingUser = await User.findOne({ email });
+  if (existingUser) {
+    return new NextResponse('Email already exists', {
+      status: 400,
+    });
+  }
+
+  const salt = bcrypt.genSaltSync(10);
+  const hashedPassword = await bcrypt.hash(password, salt);
 
   const newUser = new User({
     name,
@@ -26,9 +27,12 @@ export const POST = async (
 
   try {
     await newUser.save();
-    return response.status(201).json({ message: "User has been created" });
-  } catch (err) {
-    const errorMessage = (err as Error).message;
-    return response.status(500).json({ error: errorMessage });
+    return new NextResponse('User has been created', {
+      status: 200,
+    });
+  } catch (err: any) {
+    return new NextResponse(err.message, {
+      status: 500,
+    });
   }
 };

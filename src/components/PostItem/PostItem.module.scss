@@ -1,0 +1,28 @@
+.PostItem{
+  border: 2px solid #e8e8e8;
+  border-radius: 16px;
+  padding: 24px;
+  margin: 20px 0;
+}
+
+.PostItem_author{
+  color: #292929;
+  font-size: 14px;
+  font-weight: 600;
+  margin-left: 8px;
+}
+
+.PostItem_body_title{
+  color: #292929;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.6;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+.PostItem_body_des{
+  color: #505050;
+  font-size: 14px;
+  line-height: 1.6;
+  margin-top: 4px;
+}

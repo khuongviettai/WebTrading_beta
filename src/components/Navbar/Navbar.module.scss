@@ -119,6 +119,8 @@
   }
 }
 
+
+
 .subMenu_list_item_link:hover {
   color: #ff9671;
 }
@@ -266,6 +268,12 @@
 
 .Navbar_mobile_close_user_wrap {
   display: none;
+}
+.Navbar_user_box_img{
+  position: relative;
+  width: 30px;
+  height: 30px;
+  border-radius: 20px;
 }
 @media only screen and (max-width: 1200px) {
   .Navbar_mobile {
@@ -425,6 +433,7 @@
     height: 20px;
     border-radius: 20px;
   }
+
   .Navbar_user_box_info {
     position: fixed;
     background-color: #fff;
@@ -535,3 +544,14 @@
 // }
 
 
+.Navbar_user_list_item_sign_out_btn{
+  border-bottom: 0;
+  font-size: 13px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  background-color: #ffffff;
+  &:hover{
+    color: #ff9671;
+  }
+}

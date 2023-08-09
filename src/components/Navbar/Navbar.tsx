@@ -9,17 +9,19 @@ import add from '../../assets/icons/add.png';
 import remove from '../../assets/icons/remove.png';
 import Image from 'next/image';
 import Link from 'next/link';
+import { signOut, useSession } from 'next-auth/react';
 
 export interface INavbar {}
 
 const Navbar: React.FunctionComponent<INavbar> = () => {
+  const { data: session } = useSession();
   const [isNavbarFixed, setNavbarFixed] = useState(false);
   const [openNavbar, setOpenNavbar] = useState(false);
   const [openReference, setOpenReference] = useState(false);
   const [openForex, setOpenForex] = useState(false);
   const [openCommunity, setOpenCommunity] = useState(false);
   const [openUser, setOpenUser] = useState(false);
-  const [user] = useState();
+  const user = session?.user;
 
   const menuRef = useRef<HTMLDivElement>(null);
 
@@ -100,6 +102,9 @@ const Navbar: React.FunctionComponent<INavbar> = () => {
       document.body.classList.remove('hidden_overflow');
     };
   }, [openNavbar, openUser]);
+  // @ts-ignore
+  // @ts-ignore
+  // @ts-ignore
   return (
     <div
       className={`${styles.Navbar} ${
@@ -178,12 +183,12 @@ const Navbar: React.FunctionComponent<INavbar> = () => {
                               </a>
                             </li>
                             <li className={styles.subMenu_list_item}>
-                              <a
-                                href=""
+                              <Link
+                                href="/danh-muc-san-pham/books"
                                 className={styles.subMenu_list_item_link}
                               >
                                 Sách PDF
-                              </a>
+                              </Link>
                             </li>
                           </ul>
                         </div>
@@ -231,20 +236,12 @@ const Navbar: React.FunctionComponent<INavbar> = () => {
                               </a>
                             </li>
                             <li className={styles.subMenu_list_item}>
-                              <a
-                                href=""
+                              <Link
+                                href="/danh-muc-san-pham/indicators"
                                 className={styles.subMenu_list_item_link}
                               >
-                                Indicator MT4
-                              </a>
-                            </li>
-                            <li className={styles.subMenu_list_item}>
-                              <a
-                                href=""
-                                className={styles.subMenu_list_item_link}
-                              >
-                                Indicator MT5
-                              </a>
+                                Indicator
+                              </Link>
                             </li>
                           </ul>
                         </div>
@@ -293,7 +290,7 @@ const Navbar: React.FunctionComponent<INavbar> = () => {
                             <li className={styles.subMenu_list_item}>
                               <a
                                 target="_blank"
-                                href="youtube.com/@khuongviettai"
+                                href="https://www.youtube.com/@khuongviettai"
                                 className={styles.subMenu_list_item_link}
                               >
                                 Youtube
@@ -343,9 +340,11 @@ const Navbar: React.FunctionComponent<INavbar> = () => {
                     onClick={handleUserToggle}
                   >
                     <Image
-                      src={account}
+                      src={session?.user?.image ?? account}
                       alt="account"
                       className={styles.Navbar_user_box_img}
+                      width={30}
+                      height={30}
                     />
                   </div>
                   <div
@@ -372,7 +371,7 @@ const Navbar: React.FunctionComponent<INavbar> = () => {
                       <ul className={styles.Navbar_user_list}>
                         <li className={styles.Navbar_user_list_item_name}>
                           <a className={styles.Navbar_user_list_item_link_name}>
-                            {user}
+                            {session?.user?.name}
                           </a>
                         </li>
                         <li className={styles.Navbar_user_list_item}>
@@ -400,12 +399,16 @@ const Navbar: React.FunctionComponent<INavbar> = () => {
                           </a>
                         </li>
                         <li className={styles.Navbar_user_list_item}>
-                          <a
-                            href=""
-                            className={styles.Navbar_user_list_item_link}
+                          {/*{session.status === 'authenticated' && (*/}
+                          <button
+                            className={
+                              styles.Navbar_user_list_item_sign_out_btn
+                            }
+                            onClick={() => signOut()}
                           >
                             Đăng xuất
-                          </a>
+                          </button>
+                          {/*)}*/}
                         </li>
                       </ul>
                     </div>
@@ -493,9 +496,12 @@ const Navbar: React.FunctionComponent<INavbar> = () => {
                     </a>
                   </li>
                   <li className={styles.Navbar_mobile_subMenu_item}>
-                    <a href="" className={styles.Navbar_mobile_subMenu_link}>
+                    <Link
+                      href="/danh-muc-san-pham/books"
+                      className={styles.Navbar_mobile_subMenu_link}
+                    >
                       Sách PDF
-                    </a>
+                    </Link>
                   </li>
                 </ul>
                 {/* </div> */}
@@ -536,14 +542,12 @@ const Navbar: React.FunctionComponent<INavbar> = () => {
                     </a>
                   </li>
                   <li className={styles.Navbar_mobile_subMenu_item}>
-                    <a href="" className={styles.Navbar_mobile_subMenu_link}>
-                      Indicator MT4
-                    </a>
-                  </li>
-                  <li className={styles.Navbar_mobile_subMenu_item}>
-                    <a href="" className={styles.Navbar_mobile_subMenu_link}>
-                      Indicator MT5
-                    </a>
+                    <Link
+                      href="/danh-muc-san-pham/indicators"
+                      className={styles.Navbar_mobile_subMenu_link}
+                    >
+                      Indicator
+                    </Link>
                   </li>
                 </ul>
               </li>
@@ -581,7 +585,7 @@ const Navbar: React.FunctionComponent<INavbar> = () => {
                   <li className={styles.Navbar_mobile_subMenu_item}>
                     <a
                       target="_blank"
-                      href="youtube.com/@khuongviettai"
+                      href="https://www.youtube.com/@khuongviettai"
                       className={styles.Navbar_mobile_subMenu_link}
                     >
                       Youtube

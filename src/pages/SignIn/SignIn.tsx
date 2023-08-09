@@ -4,10 +4,11 @@ import styles from './SignIn.module.scss';
 import Image from 'next/image';
 import google from '../../assets/icons/google.png';
 import facebook from '../../assets/icons/facebook.png';
-import { signIn } from 'next-auth/react';
+import { signIn, useSession } from 'next-auth/react';
 import visibility from '../../assets/icons/visibility.png';
 import visibility_off from '../../assets/icons/visibility_off.png';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 export interface ISignIn {}
 
@@ -16,18 +17,52 @@ const SignIn: React.FunctionComponent<ISignIn> = () => {
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
+  const router = useRouter();
+  const { data: session } = useSession();
+  if (session) {
+    router.push('/');
+  }
 
-  const [loading, setLoading] = useState(true);
+  const handleGoogleSignIn = async () => {
+    // Use try-catch block to handle errors
+    try {
+      const result = await signIn('google'); // Perform Google sign-in
+      if (result?.error) {
+        console.error('Google sign-in error:', result.error);
+      } else if (result?.ok) {
+        router.push('/'); // Redirect to home on successful sign-in
+      }
+    } catch (error) {
+      console.error('Google sign-in error:', error);
+    }
+  };
+
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+    const email = e.target[0].value;
+    const password = e.target[1].value;
+
+    signIn('credentials', {
+      email,
+      password,
+    });
+  };
+
   return (
     <div className={styles.SignIn}>
       <div className={styles.SignIn_wrap}>
         <h3 className={styles.SignIn_title}>Đăng nhập</h3>
-        <form action="" className={styles.SignIn_form}>
+        <form action="" className={styles.SignIn_form} onSubmit={handleSubmit}>
           <div className={styles.SignIn_box}>
             <label htmlFor="" className={styles.SignIn_box_label}>
               Email
             </label>
-            <input type="email" name="" className={styles.SignIn_input} />
+            <input
+              type="email"
+              name=""
+              className={styles.SignIn_input}
+              required
+            />
           </div>
           <div className={styles.SignIn_box}>
             <label htmlFor="" className={styles.SignIn_box_label}>
@@ -38,6 +73,7 @@ const SignIn: React.FunctionComponent<ISignIn> = () => {
                 type={showPassword ? 'text' : 'password'}
                 name=""
                 className={styles.SignIn_input}
+                required
               />
               <Image
                 src={showPassword ? visibility_off : visibility}
@@ -82,7 +118,7 @@ const SignIn: React.FunctionComponent<ISignIn> = () => {
           <div className={styles.SignIn_box_other}>
             <div
               className={styles.SignIn_box_other_google}
-              onClick={() => signIn('google')}
+              onClick={handleGoogleSignIn}
             >
               <Image
                 src={google}

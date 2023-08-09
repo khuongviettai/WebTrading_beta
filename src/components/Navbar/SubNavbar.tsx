@@ -8,6 +8,7 @@ import facebook from '../../assets/icons/facebook.png';
 import twitter from '../../assets/icons/twitter.png';
 import Image from 'next/image';
 import DarkModeToggle from '@/components/DarkModeToggle/DarkModeToggle';
+import Link from 'next/link';
 
 export interface ISubNavbar {}
 
@@ -62,8 +63,8 @@ const SubNavbar: React.FunctionComponent<ISubNavbar> = () => {
                 <DarkModeToggle />
               </li>
               <li className={styles.SubNavbar_contact_list_item}>
-                <a
-                  href=""
+                <Link
+                  href="https://www.messenger.com/t/100011635572752"
                   className={styles.SubNavbar_contact_list_item_link}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -73,7 +74,7 @@ const SubNavbar: React.FunctionComponent<ISubNavbar> = () => {
                     alt="messenger"
                     className={styles.SubNavbar_contact_list_item_img}
                   />
-                </a>
+                </Link>
               </li>
               <li className={styles.SubNavbar_contact_list_item}>
                 <a
@@ -90,7 +91,7 @@ const SubNavbar: React.FunctionComponent<ISubNavbar> = () => {
                 </a>
               </li>
               <li className={styles.SubNavbar_contact_list_item}>
-                <a
+                <Link
                   href=""
                   className={styles.SubNavbar_contact_list_item_link}
                   target="_blank"
@@ -101,11 +102,11 @@ const SubNavbar: React.FunctionComponent<ISubNavbar> = () => {
                     alt="facebook"
                     className={styles.SubNavbar_contact_list_item_img}
                   />
-                </a>
+                </Link>
               </li>
               <li className={styles.SubNavbar_contact_list_item}>
-                <a
-                  href=""
+                <Link
+                  href="https://twitter.com/khuongviettai"
                   className={styles.SubNavbar_contact_list_item_link}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -115,7 +116,7 @@ const SubNavbar: React.FunctionComponent<ISubNavbar> = () => {
                     alt="twitter"
                     className={styles.SubNavbar_contact_list_item_img}
                   />
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

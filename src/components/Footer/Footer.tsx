@@ -1,8 +1,9 @@
-"use client";
-import React, { useState } from "react";
-import styles from "./Footer.module.scss";
-import expand_more from "../../assets/icons/expand_more.png";
-import Image from "next/image";
+'use client';
+import React, { useState } from 'react';
+import styles from './Footer.module.scss';
+import expand_more from '../../assets/icons/expand_more.png';
+import Image from 'next/image';
+import Link from 'next/link';
 
 export interface IFooter {}
 
@@ -39,14 +40,14 @@ const Footer: React.FunctionComponent<IFooter> = () => {
                 </span>
                 <div className={styles.Footer_intro_more}>
                   <div className={styles.Footer_intro_more_me}>
-                    Tìm hiểu thêm về tôi: {`${" "}`}
-                    <a
-                      href=""
+                    Tìm hiểu thêm về tôi: {`${' '}`}
+                    <Link
+                      href="/khuongviettai"
                       target="_blank"
                       className={styles.Footer_intro_more_me_link}
                     >
                       Ở đây
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -69,7 +70,7 @@ const Footer: React.FunctionComponent<IFooter> = () => {
               </div>
               <div
                 className={`${styles.Footer_reference_wrap} ${
-                  openReference ? "m-show" : ""
+                  openReference ? 'm-show' : ''
                 }`}
               >
                 <ul className={styles.Footer_reference_list}>
@@ -126,7 +127,7 @@ const Footer: React.FunctionComponent<IFooter> = () => {
               </div>
               <div
                 className={`${styles.Footer_forex_wrap} ${
-                  openForex ? "m-show" : ""
+                  openForex ? 'm-show' : ''
                 }`}
               >
                 <ul className={styles.Footer_forex_list}>
@@ -171,7 +172,7 @@ const Footer: React.FunctionComponent<IFooter> = () => {
               </div>
               <div
                 className={`${styles.Footer_community_wrap} ${
-                  openCommunity ? "m-show" : ""
+                  openCommunity ? 'm-show' : ''
                 }`}
               >
                 <ul className={styles.Footer_community_list}>

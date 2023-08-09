@@ -48,3 +48,16 @@
 .dark a {
   color: #f3f5f3 !important;
 }
+
+
+@media only screen and (max-width: 992px){
+  .books{
+    display: flex;
+    justify-content: center;
+  }
+  .indicators{
+    display: flex;
+    justify-content: center;
+  }
+}
+

@@ -2,13 +2,14 @@ import mongoose from 'mongoose';
 import postsSchema from './Posts';
 import commentSchema from './Comment';
 
-const { Schema } = mongoose;
-
-const userSchema = new Schema(
+const userSchema = new mongoose.Schema(
   {
     name: {
       type: String,
-      unique: true,
+      require: true,
+    },
+    userName: {
+      type: String,
       require: true,
     },
     email: {
@@ -20,12 +21,9 @@ const userSchema = new Schema(
       type: String,
       require: true,
     },
-    registrationDate: {
-      type: Date,
-      default: Date.now,
-    },
     avatar: {
       type: String,
+      require: true,
     },
     admin: {
       type: Boolean,
@@ -34,6 +32,7 @@ const userSchema = new Schema(
     },
     birthDate: {
       type: Date,
+      require: true,
     },
     posts: [postsSchema],
     comments: [commentSchema],
@@ -41,4 +40,5 @@ const userSchema = new Schema(
   { timestamps: true },
 );
 
-export default mongoose.model('User', userSchema);
+//If the User collection does not exist create a new one.
+export default mongoose.models.User || mongoose.model('User', userSchema);

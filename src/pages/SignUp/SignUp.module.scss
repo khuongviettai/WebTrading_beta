@@ -54,6 +54,7 @@
   margin-right: calc(10px / 2);
   margin-bottom: 20px;
 }
+
 .SignUp_input_box{
   max-width: 100%;
   width: 100%;
@@ -79,7 +80,6 @@
     border: #ff9671 solid 1px;
   }
 }
-
 .SignUp_label {
   margin-left: 19px;
   position: absolute;
@@ -87,6 +87,13 @@
   background-color: #fff;
   padding: 0 5px;
 }
+
+.SignUp_input:focus .SignUp_label {
+  color: #ff9671 !important;
+}
+
+
+
 
 .SignUp_box_btn {
   width: 100%;
@@ -130,6 +137,12 @@
   font-size: 14px;
   font-weight: bold;
   margin-left: 2px;
+}
+
+.SignIn_email_exits{
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
 }
 
 @media only screen and (min-width: 768px) and (max-width: 1200px) {
@@ -233,3 +246,4 @@
     padding: 15px;
   }
 }
+

@@ -1,16 +1,9 @@
-.Card{
-  display: flex;
-  flex-wrap: wrap;
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
 .Card_box{
   padding: 20px 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: hidden;
 }
 
 
@@ -39,41 +32,87 @@
 }
 
 .Card_box_title{
+  font-size: 14px;
   margin-block-start: 1em;
   margin-block-end: 1em;
 }
 
-.Card_box_img:hover .Card_img{
-  display: none;
-}
+//.Card_box_img:hover .Card_img{
+//  display: none;
+//}
+//
+//.Card_des{
+//  width: 100%;
+//  height: 100%;
+//  display: none;
+//
+//}
+//.Card_box_img{
+//  position: relative;
+//  height: 300px;
+//  width: 250px;
+//  border-radius: 15px;
+//  background-color: transparent;
+//  transition: transform 2s ease-in;
+//  perspective: 1000px;
+//  box-shadow: 0 0 13px 0 #00000040;
+//}
+//
+//.Card_box_img:hover{
+//  transform: rotateY(180deg);
+//}
+//
+//.Card_box_des{
+//  padding: 10px 10px;
+//
+//}
+//.Card_des{
+//  transform: rotateY(180deg);
+//}
+//
+//.Card_box_img:hover .Card_des{
+//  display: block;
+//}
 
-.Card_des{
-  width: 100%;
-  height: 100%;
-  display: none;
-}
-.Card_box_img{
-  position: relative;
+
+.Card_wrap_img{
   height: 300px;
   width: 250px;
-  border-radius: 15px;
-  perspective: 100px;
-  background-color: transparent;
-  transition: transform 2s;
-  box-shadow: 0 0 13px 0 #00000040;
+  perspective: 800px;
 }
 
-.Card_box_img:hover{
+.Card_wrap_img:hover > .Card_block_img{
+  cursor: pointer;
   transform: rotateY(180deg);
 }
 
+.Card_block_img{
+  height: 100%;
+  width: 100%;
+  position: relative;
+  transition: transform 1500ms;
+  transform-style: preserve-3d;
+}
+
+.Card_box_img,
 .Card_box_des{
-  padding: 10px 10px;
+  height: 100%;
+  width: 100%;
+  border-radius: 15px;
+  box-shadow: 0 0 5px 2px rgba(50, 50, 50, 0.25);
+  position: absolute;
+  backface-visibility: hidden;
 }
-.Card_des{
+.Card_box_des{
   transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5rem;
 }
 
-.Card_box_img:hover .Card_des{
-  display: block;
+.Card_des{
+  padding: 5px 10px;
+  text-align: justify;
 }
