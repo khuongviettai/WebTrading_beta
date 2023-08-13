@@ -1,0 +1,130 @@
+.CreateDiary{
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0,0,0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.CreateDiary_img_close{
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  z-index: 9999;
+  right: 10px;
+  top: 20px;
+  margin-bottom: 20px;
+  border-radius: 30px;
+  background-color: #ffffff;
+}
+.Create_box{
+  width: 500px;
+  height: 600px;
+  background: #FFFFFF;
+  border-radius: 10px;
+  padding: 55px 45px 44px;
+  overflow-y: scroll;
+  border: 1px solid  #D0D5DD;
+  &::-webkit-scrollbar{
+    display: none;
+  }
+ }
+
+.CreateDiary_title{
+  width: 100%;
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+  margin: 5px 0;
+}
+
+.CreateDiary_box_input{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: calc(10px / 2);
+  margin-right: calc(10px / 2);
+  margin-bottom: 20px;
+}
+
+.CreateDiary_input{
+  min-height: 40px;
+  padding: 3px 14px;
+  border-radius: 10px;
+  background-color: #fff;
+  flex-basis: 100%;
+  max-width: 100%;
+  width: 100%;
+  border: 1px solid #818a91;
+  color: #373a3c;
+  vertical-align: middle;
+  flex-grow: 1;
+  &:focus {
+    outline: #ff9671 solid 1px;
+    border: #ff9671 solid 1px;
+  }
+}
+
+.CreateDiary_textarea{
+
+  padding: 3px 14px;
+  border-radius: 10px;
+  background-color: #fff;
+  flex-basis: 100%;
+  max-width: 100%;
+  width: 100%;
+  border: 1px solid #818a91;
+  color: #373a3c;
+  min-height: 140px;
+  &:focus {
+    outline: #ff9671 solid 1px;
+    border: #ff9671 solid 1px;
+  }
+}
+
+.CreateDiary_btn_box{
+  display: flex;
+  align-items: center;
+}
+
+.CreateDiary_wrap_btn{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: calc(10px / 2);
+  margin-right: calc(10px / 2);
+  margin-bottom: 10px;
+  :hover {
+    box-shadow: 0 1px 15px rgba(0, 0, 0, 0.3);
+  }
+}
+.CreateDiary_btn_save{
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  border-radius: 8px;
+  border: 1px solid  #FFFFFF;
+  background: rgba(73, 187, 189, 0.60);
+  color: #fff;
+}
+.CreateDiary_btn_cancel{
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  border-radius: 8px;
+  border: 1px solid  #ff0000;
+  background:  #FFF;
+}

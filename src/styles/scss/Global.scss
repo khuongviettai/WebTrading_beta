@@ -1,4 +1,5 @@
 
+
 .show {
   display: block !important;
 }
@@ -14,6 +15,12 @@
 .error_msg{
   color: red;
   font-size: 12px;
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
+.success_msg{
+  font-size: 14px;
   margin-block-start: 0;
   margin-block-end: 0;
 }
@@ -60,4 +67,5 @@
     justify-content: center;
   }
 }
+
 

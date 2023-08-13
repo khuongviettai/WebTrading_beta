@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './SingleCard.module.scss';
 import book from '../../assets/images/book.png';
 import Image from 'next/image';
-
+import image_not_available from '../../assets/images/error/image_not_available.png';
 export interface ISingleCard {
   item: any;
 }
@@ -16,13 +16,23 @@ const SingleCard: React.FunctionComponent<ISingleCard> = ({ item }) => {
             <div className={styles.SingleCard_box_image}>
               <div className={styles.SingleCard_box_image_inner}>
                 <div className={styles.SingleCard_box_image_inner_data}>
-                  <Image
-                    src={item?.image}
-                    alt={item?.title}
-                    className={styles.SingleCard_image}
-                    width={550}
-                    height={550}
-                  />
+                  {item?.image ? (
+                    <Image
+                      src={item?.image}
+                      alt={item?.title}
+                      className={styles.SingleCard_image}
+                      width={550}
+                      height={550}
+                    />
+                  ) : (
+                    <Image
+                      src={image_not_available}
+                      alt="image_not_available"
+                      className={styles.SingleCard_image}
+                      width={550}
+                      height={550}
+                    />
+                  )}
                 </div>
               </div>
             </div>

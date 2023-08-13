@@ -1,0 +1,99 @@
+.WarningSignIn{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center
+}
+
+.WarningSignIn_box{
+  width: 500px;
+  height: 450px;
+  background: #ffffff;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+
+}
+
+.WarningSignIn_title{
+  text-align: center;
+  color: #ff0000;
+}
+
+.WarningSignIn_img{
+  width: 40px;
+  height: 40px;
+}
+
+.WarningSignIn_box_img{
+
+  border-radius: 50%;
+  border: 8px solid  #FFFAEB;
+  background: #FEF0C7;
+  display: flex;
+  width: 70px;
+  height: 70px;
+  padding: 12px;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.WarningSignIn_box_link{
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.WarningSignIn_link_sign_in{
+  width: 48%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  border-radius: 8px;
+  border: 1px solid  #D0D5DD;
+  background:  #FFF;
+}
+.WarningSignIn_desc{
+  font-size: 15px;
+  color: #ff0000;
+}
+
+.WarningSignIn_link_home{
+  width: 48%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  border-radius: 8px;
+  background: rgba(73, 187, 189, 0.60);
+  color: #fff;
+}
+
+
+@media only screen and (max-width: 720px){
+  .WarningSignIn_box_link{
+    display: flex;
+    flex-direction: column;
+  }
+  .WarningSignIn_link_sign_in, .WarningSignIn_link_home{
+    margin: 5px 0;
+  }
+  .WarningSignIn_box{
+    background: none;
+  }
+}

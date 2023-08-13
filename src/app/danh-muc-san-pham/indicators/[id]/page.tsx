@@ -17,7 +17,7 @@ const IndicatorID: React.FunctionComponent<IIndicatorID> = () => {
   const { id } = useParams();
   useEffect(() => {
     axios
-      .get(`http://localhost:3000/api/danh-muc-san-pham/indicators/${id}`)
+      .get(`/api/danh-muc-san-pham/indicators/${id}`)
       .then(({ data }) => {
         setIndicator(data);
       })

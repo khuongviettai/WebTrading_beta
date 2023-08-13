@@ -1,49 +1,20 @@
-'use client';
-import React, { useEffect, useState } from 'react';
-import Card, { ICard } from '@/components/Card/Card';
-import axios from 'axios';
-import Navbar from '@/components/Navbar/Navbar';
-import SubNavbar from '@/components/Navbar/SubNavbar';
-import Footer from '@/components/Footer/Footer';
+import React from 'react';
 import { Metadata } from 'next';
+import Book from '@/layouts/danh-muc-san-pham/Book/Book';
 
 export interface IBookLink {}
 
 const BookLink: React.FunctionComponent<IBookLink> = () => {
-  const [books, setBooks] = useState<ICard[]>([]);
-
-  useEffect(() => {
-    axios
-      .get('http://localhost:3000/api/danh-muc-san-pham/books')
-      .then(({ data }) => {
-        setBooks(data);
-      })
-      .catch((error) => console.log(error));
-  });
-  return (
-    <>
-      <SubNavbar />
-      <Navbar />
-      <div className="container">
-        <div className="dis-flex flex-wrap books">
-          {books &&
-            books.map((item, index) => (
-              <div className="col-lg-3 col-md-4 col-sm-6 col-xs-6">
-                <Card
-                  key={index}
-                  _id={item._id}
-                  title={item.title}
-                  image={item.image}
-                  download={item.download}
-                  describe={item.describe}
-                />
-              </div>
-            ))}
-        </div>
-      </div>
-      <Footer />
-    </>
-  );
+  return <Book />;
 };
 
 export default BookLink;
+
+export const metadata: Metadata = {
+  title: 'Sách Ebook - Tài liệu học hữu ích tại Khuong Viet Tai',
+  description:
+    'Khám phá bộ sưu tập sách Ebook đa dạng và hữu ích tại Khuong Viet Tai. Tự học và nâng cao kiến thức về tài chính cùng với các tài liệu chất lượng.',
+  icons: {
+    icon: '/favicon.ico',
+  },
+};

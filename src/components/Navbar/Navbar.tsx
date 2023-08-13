@@ -220,7 +220,7 @@ const Navbar: React.FunctionComponent<INavbar> = () => {
                           <ul className={styles.subMenu_list}>
                             <li className={styles.subMenu_list_item}>
                               <a
-                                href=""
+                                href="/news"
                                 className={styles.subMenu_list_item_link}
                               >
                                 Tin tức
@@ -313,21 +313,24 @@ const Navbar: React.FunctionComponent<INavbar> = () => {
                 </div>
               </li>
               <li className={styles.Navbar_panel_list_item}>
-                <a href="#" className={styles.Navbar_panel_list_item_link}>
+                <Link
+                  href="/nhat-ky-giao-dich"
+                  className={styles.Navbar_panel_list_item_link}
+                >
                   <span className={styles.Navbar_panel_list_item_link_body}>
                     Nhật ký giao dịch
                   </span>
-                </a>
+                </Link>
               </li>
               <li className={styles.Navbar_panel_list_item}>
-                <a
+                <Link
                   href="/contact"
                   className={styles.Navbar_panel_list_item_link}
                 >
                   <span className={styles.Navbar_panel_list_item_link_body}>
                     Liên hệ
                   </span>
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -343,8 +346,8 @@ const Navbar: React.FunctionComponent<INavbar> = () => {
                       src={session?.user?.image ?? account}
                       alt="account"
                       className={styles.Navbar_user_box_img}
-                      width={30}
-                      height={30}
+                      width={20}
+                      height={20}
                     />
                   </div>
                   <div
@@ -573,40 +576,43 @@ const Navbar: React.FunctionComponent<INavbar> = () => {
                   }`}
                 >
                   <li className={styles.Navbar_mobile_subMenu_item}>
-                    <a href="" className={styles.Navbar_mobile_subMenu_link}>
+                    <Link href="" className={styles.Navbar_mobile_subMenu_link}>
                       Hỏi đáp
-                    </a>
+                    </Link>
                   </li>
                   <li className={styles.Navbar_mobile_subMenu_item}>
-                    <a href="" className={styles.Navbar_mobile_subMenu_link}>
+                    <Link href="" className={styles.Navbar_mobile_subMenu_link}>
                       Chia sẻ
-                    </a>
+                    </Link>
                   </li>
                   <li className={styles.Navbar_mobile_subMenu_item}>
-                    <a
+                    <Link
                       target="_blank"
                       href="https://www.youtube.com/@khuongviettai"
                       className={styles.Navbar_mobile_subMenu_link}
                     >
                       Youtube
-                    </a>
+                    </Link>
                   </li>
                   <li className={styles.Navbar_mobile_subMenu_item}>
-                    <a
+                    <Link
                       target="_blank"
                       href="https://twitter.com/khuongviettai"
                       className={styles.Navbar_mobile_subMenu_link}
                     >
                       Twitter
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </li>
               <li className={styles.Navbar_mobile_menu_list_item}>
                 <div className={styles.Navbar_mobile_menu_more_wrap}>
-                  <a href="#" className={styles.Navbar_mobile_menu_link}>
+                  <Link
+                    href="/nhat-ky-giao-dich"
+                    className={styles.Navbar_mobile_menu_link}
+                  >
                     Nhật ký giao dịch
-                  </a>
+                  </Link>
                 </div>
               </li>
               <li className={styles.Navbar_mobile_menu_list_item}>

@@ -1,0 +1,71 @@
+.Diary_select_box{
+  width: 150px;
+  height: 25px;
+
+}
+
+.Diary_name_box{
+  margin: 10px 0;
+}
+
+.Diary_welcome{
+  font-size: 20px;
+  font-weight: 600;
+  color: #717B8C;
+}
+.Diary_name{
+  font-size: 20px;
+  font-weight: 600;
+  margin-left: 5px;
+  color: #4C535F;
+}
+.Diary_table_box{
+  margin: 40px 0;
+}
+
+.Diary_table{
+  width: 100%;
+  border:1px solid black;
+  border-collapse: collapse;
+}
+
+.Diary_thead,.Diary_row, .Diary_header, .Diary_row, .Diary_table_data{
+  border:1px solid black;
+  border-collapse: collapse;
+}
+.Diary_table_data{
+  text-align: center;
+}
+
+.Diary_box_wrap{
+  display: flex;
+  justify-content: space-between;
+}
+
+.Diary_create_trading{
+  width: 150px;
+  height: 25px;
+
+}
+
+.Diary_box_wrap{
+  border-bottom: 1px solid rgba(0,0,0,.09);
+  margin-bottom: 10px;
+  outline: none;
+  padding-bottom: 18px;
+}
+
+.Diary_create_trading{
+  min-height: 40px;
+  padding: 3px 20px;
+  border-radius: 5px;
+  flex-basis: 100%;
+  max-width: 100%;
+  width: 100%;
+  vertical-align: middle;
+  flex-grow: 1;
+  color: #fff;
+  background-color: #ff9671;
+  border: none;
+  cursor: pointer;
+}

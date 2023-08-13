@@ -1,0 +1,78 @@
+.SocialNetwork_box{
+  margin-top: 54px;
+  padding-bottom: 48px;
+}
+.SocialNetwork_input{
+  background-color: #fff;
+  color: #757575;
+  border: none;
+  border-bottom: 1px solid rgba(0,0,0,.05);
+  font-size: 16px;
+  margin-bottom: 10px;
+  outline: none;
+  padding-bottom: 8px;
+  width: 100%;
+}
+.SocialNetwork_body{
+  margin-top: 16px;
+  max-width: 500px;
+}
+
+.SocialNetwork_wrapper{
+  align-items: flex-start;
+  display: flex;
+  padding: 16px 0 20px;
+}
+
+
+.SocialNetwork_box_input{
+  flex: 1 1;
+  margin-right: 10px!important;
+}
+
+.SocialNetwork_box_edit{
+  display: flex;
+}
+.SocialNetwork_btn_edit{
+  background-color: transparent;
+  border: 1px solid rgba(0,0,0,.15);
+  border-radius: 30px;
+  color: rgba(0,0,0,.54);
+  cursor: pointer;
+  font-size: 0.8rem;
+  height: 37px;
+  line-height: 37px;
+  padding: 0 16px;
+  transition: background-color .1s,border-color .1s,color .1s,fill .1s;
+}
+.SocialNetwork_btn_editMode{
+  display: flex;
+}
+
+.SocialNetwork_btn_save{
+  user-select: none;
+  color: #f05123;
+  margin-right: 8px;
+  background-color: transparent;
+  border: 1px solid rgba(0,0,0,.15);
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: .7rem;
+  height: 37px;
+  line-height: 37px;
+  padding: 0 16px;
+  transition: background-color .1s,border-color .1s,color .1s,fill .1s;
+}
+
+.SocialNetwork_btn_cancel{
+  background-color: transparent;
+  border: 1px solid rgba(0,0,0,.15);
+  border-radius: 30px;
+  color: rgba(0,0,0,.54);
+  cursor: pointer;
+  font-size: .7rem;
+  height: 37px;
+  line-height: 37px;
+  padding: 0 16px;
+  transition: background-color .1s,border-color .1s,color .1s,fill .1s;
+}

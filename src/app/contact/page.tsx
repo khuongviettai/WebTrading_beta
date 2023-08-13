@@ -9,6 +9,10 @@ export default function ContactLink(props: IContactLinkProps) {
 }
 
 export const metadata: Metadata = {
-  title: 'Bài viết',
-  description: 'Welcome to Khuong Viet Tai',
+  title: 'Liên hệ - Khuong Viet Tai',
+  description:
+    'Chào mừng bạn đến với Khuong Viet Tai - nơi kết nối và học hỏi các mối quan hệ và kiến thức về tài chính. Hãy cùng mình tạo nên một cộng đồng lành mạnh.',
+  icons: {
+    icon: '/favicon.ico',
+  },
 };

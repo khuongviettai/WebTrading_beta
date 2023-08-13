@@ -1,0 +1,109 @@
+.Profile_box{
+    margin-top: 54px;
+    padding-bottom: 48px;
+}
+
+.Profile_input{
+  background-color: #fff;
+  color: #757575;
+  border: none;
+  border-bottom: 1px solid rgba(0,0,0,.05);
+  font-size: 16px;
+  margin-bottom: 10px;
+  outline: none;
+  padding-bottom: 8px;
+  width: 100%;
+}
+
+.Profile_body{
+  margin-top: 16px;
+  max-width: 500px;
+}
+
+.Profile_disc_box{
+  color: #757575;
+  font-size: 12px;
+  line-height: 1.5rem;
+}
+.Profile_wrapper{
+  align-items: flex-start;
+  display: flex;
+  padding: 16px 0 20px;
+}
+
+.Profile_box_input{
+  flex: 1 1;
+  margin-right: 10px!important;
+}
+
+.Profile_btn_edit{
+  background-color: transparent;
+  border: 1px solid rgba(0,0,0,.15);
+  border-radius: 30px;
+  color: rgba(0,0,0,.54);
+  cursor: pointer;
+  font-size: 0.8rem;
+  height: 37px;
+  line-height: 37px;
+  padding: 0 16px;
+  transition: background-color .1s,border-color .1s,color .1s,fill .1s;
+}
+
+.Profile_box_edit{
+  display: flex;
+}
+
+.Profile_btn_editMode{
+  display: flex;
+}
+
+.Profile_btn_save{
+  user-select: none;
+  color: #f05123;
+  margin-right: 8px;
+  background-color: transparent;
+  border: 1px solid rgba(0,0,0,.15);
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: .7rem;
+  height: 37px;
+  line-height: 37px;
+  padding: 0 16px;
+  transition: background-color .1s,border-color .1s,color .1s,fill .1s;
+}
+.Profile_btn_cancel{
+  background-color: transparent;
+  border: 1px solid rgba(0,0,0,.15);
+  border-radius: 30px;
+  color: rgba(0,0,0,.54);
+  cursor: pointer;
+  font-size: .7rem;
+  height: 37px;
+  line-height: 37px;
+  padding: 0 16px;
+  transition: background-color .1s,border-color .1s,color .1s,fill .1s;
+}
+
+.Profile_disc{
+  margin-block-start: .5em;
+  margin-block-end: .5em;
+
+}
+
+
+.Profile_avatar_title{
+  color: #4C535F;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.Profile_avatar{
+  border-radius: 18px;
+  border: 1px dashed #4C535F;
+  background: #FAFBFC;
+  width: 130px;
+  height: 132px;
+  margin-top: 10px;
+}

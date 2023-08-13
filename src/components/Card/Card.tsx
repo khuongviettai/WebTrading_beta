@@ -3,6 +3,7 @@ import styles from './Card.module.scss';
 import Image from 'next/image';
 import Link from 'next/link';
 import NotFound from '@/app/not-found';
+import image_not_available from '../../assets/images/error/image_not_available.png';
 
 export interface ICard {
   key: number;
@@ -26,9 +27,8 @@ const Card: React.FunctionComponent<ICard> = (props) => {
       return <NotFound />;
     }
   };
-// @ts-ignore
-  const href = generateHref(category, props._id);
-
+  // @ts-ignore
+  const href: string = generateHref(category, props._id);
 
   return (
     <div className={styles.Card_box}>
@@ -36,12 +36,20 @@ const Card: React.FunctionComponent<ICard> = (props) => {
         <div className={styles.Card_block_img}>
           <div className={styles.Card_box_img}>
             <Link href={href} className={styles.Card_box_img_link}>
-              <Image
-                src={props.image}
-                alt={props.title}
-                className={styles.Card_img}
-                fill={true}
-              />
+              {props.image ? (
+                <Image
+                  src={props.image}
+                  alt={props.title}
+                  className={styles.Card_img}
+                  fill={true}
+                />
+              ) : (
+                <Image
+                  src={image_not_available}
+                  alt="image_not_available"
+                  className={styles.Card_img}
+                />
+              )}
             </Link>
           </div>
           <div className={styles.Card_box_des}>

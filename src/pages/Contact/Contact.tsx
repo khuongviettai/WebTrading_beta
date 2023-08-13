@@ -1,38 +1,53 @@
 'use client';
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './Contact.module.scss';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import axios from 'axios';
 
 export interface IContact {}
 
 const Contact: React.FunctionComponent<IContact> = () => {
+  const [submitSuccess, setSubmitSuccess] = useState(false);
+  // validate the form
   const formik = useFormik({
     initialValues: {
-      fullName: '',
-      phoneNumber: '',
+      name: '',
+      phone_number: '',
       email: '',
       content: '',
     },
     validationSchema: Yup.object({
-      fullName: Yup.string()
-        .required('')
-        .min(5, 'Họ và tên phải nhiều hơn 5 ký tự'),
-      phoneNumber: Yup.string()
-        .required('')
+      name: Yup.string().required('Vui lòng nhập họ tên'),
+      phone_number: Yup.string()
+        .required('Vui lòng nhập số điện thoại')
         .matches(
-          /([\+84|84|0|0084]+(3|5|7|8|9|1[2|6|8|9]))+([0-9]{8})\b/, //eslint-disable-line
+          /(|84|0[3|5|7|8|9])+([0-9]{8})\b/g,
           'Số điện thoại không hợp lệ',
         ),
       email: Yup.string()
-        .required('')
+        .required('Vui lòng nhập email')
         .matches(
           /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
           'Email không hợp lệ',
         ),
     }),
-    onSubmit: (values) => {
-      console.log(values);
+    onSubmit: async (values, { resetForm }) => {
+      try {
+        await axios.post('http://localhost:8080/api/contacts', {
+          name: values.name,
+          phone_number: values.phone_number,
+          email: values.email,
+          content: values.content,
+        });
+        resetForm();
+        setSubmitSuccess(true);
+        setTimeout(() => {
+          setSubmitSuccess(false);
+        }, 3000);
+      } catch (err: any) {
+        console.log(err);
+      }
     },
   });
 
@@ -84,7 +99,6 @@ const Contact: React.FunctionComponent<IContact> = () => {
             <div className={styles.Contact_right}>
               <h3 className={styles.Contact_right_title}>Hòm thư liên hệ</h3>
               <form
-                action=""
                 className={styles.Contact_right_form}
                 onSubmit={formik.handleSubmit}
               >
@@ -93,12 +107,13 @@ const Contact: React.FunctionComponent<IContact> = () => {
                     type="text"
                     className={styles.Contact_right_form_input}
                     placeholder="Họ và tên*"
-                    name="fullName"
-                    value={formik.values.fullName}
+                    name="name"
+                    value={formik.values.name}
                     onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
                   />
-                  {formik.errors.fullName && (
-                    <p className="error_msg">{formik.errors.fullName}</p>
+                  {formik.touched.name && formik.errors.name && (
+                    <p className="error_msg">{formik.errors.name}</p>
                   )}
                 </div>
                 <div className={styles.Contact_right_form_box}>
@@ -106,13 +121,15 @@ const Contact: React.FunctionComponent<IContact> = () => {
                     type="number"
                     className={styles.Contact_right_form_input}
                     placeholder="Số điện thoại*"
-                    name="phoneNumber"
-                    value={formik.values.phoneNumber}
+                    name="phone_number"
+                    value={formik.values.phone_number}
                     onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
                   />
-                  {formik.errors.phoneNumber && (
-                    <p className="error_msg">{formik.errors.phoneNumber}</p>
-                  )}
+                  {formik.touched.phone_number &&
+                    formik.errors.phone_number && (
+                      <p className="error_msg">{formik.errors.phone_number}</p>
+                    )}
                 </div>
                 <div className={styles.Contact_right_form_box}>
                   <input
@@ -122,22 +139,35 @@ const Contact: React.FunctionComponent<IContact> = () => {
                     name="email"
                     value={formik.values.email}
                     onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
                   />
-                  {formik.errors.email && (
+                  {formik.touched.email && formik.errors.email && (
                     <p className="error_msg">{formik.errors.email}</p>
                   )}
                 </div>
                 <div className={styles.Contact_right_form_box}>
                   <textarea
+                    name="content"
+                    value={formik.values.content}
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
                     className={styles.Contact_right_form_area}
                     placeholder="Nội dung*"
                   />
                 </div>
 
                 <div className={styles.Contact_right_form_box}>
-                  <button className={styles.Contact_right_form_btn}>Gửi</button>
+                  <button
+                    className={styles.Contact_right_form_btn}
+                    type="submit"
+                  >
+                    Gửi
+                  </button>
                 </div>
               </form>
+              {submitSuccess && (
+                <div className="success_msg">Gửi thành công!</div>
+              )}
             </div>
           </div>
         </div>

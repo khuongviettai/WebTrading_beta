@@ -11,11 +11,16 @@ import visibility_off from '../../assets/icons/visibility_off.png';
 import Link from 'next/link';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
+import { useSession } from 'next-auth/react';
 
 export interface ISignUp {}
 
 const SignUp: React.FunctionComponent<ISignUp> = () => {
   const router = useRouter();
+  const { data: session } = useSession();
+  if (session) {
+    router.push('/');
+  }
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');

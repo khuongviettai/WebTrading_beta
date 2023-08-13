@@ -78,7 +78,7 @@ const SubNavbar: React.FunctionComponent<ISubNavbar> = () => {
               </li>
               <li className={styles.SubNavbar_contact_list_item}>
                 <a
-                  href=""
+                  href="https://t.me/khuongviettai"
                   className={styles.SubNavbar_contact_list_item_link}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -92,7 +92,7 @@ const SubNavbar: React.FunctionComponent<ISubNavbar> = () => {
               </li>
               <li className={styles.SubNavbar_contact_list_item}>
                 <Link
-                  href=""
+                  href="https://www.facebook.com/khuongviettai"
                   className={styles.SubNavbar_contact_list_item_link}
                   target="_blank"
                   rel="noopener noreferrer"

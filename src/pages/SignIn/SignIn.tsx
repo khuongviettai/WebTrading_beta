@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './SignIn.module.scss';
 import Image from 'next/image';
 import google from '../../assets/icons/google.png';
@@ -8,7 +8,7 @@ import { signIn, useSession } from 'next-auth/react';
 import visibility from '../../assets/icons/visibility.png';
 import visibility_off from '../../assets/icons/visibility_off.png';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 
 export interface ISignIn {}
 
@@ -17,20 +17,29 @@ const SignIn: React.FunctionComponent<ISignIn> = () => {
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
+  const params: any = useSearchParams();
   const router = useRouter();
   const { data: session } = useSession();
   if (session) {
     router.push('/');
   }
+  const [error, setError] = useState('');
+  const [success, setSuccess] = useState('');
 
+  useEffect(() => {
+    setError(params.get('error'));
+    setSuccess(params.get('success'));
+  }, [params]);
+
+  // function login with Google
   const handleGoogleSignIn = async () => {
     // Use try-catch block to handle errors
     try {
-      const result = await signIn('google'); // Perform Google sign-in
+      const result = await signIn('google');
       if (result?.error) {
         console.error('Google sign-in error:', result.error);
       } else if (result?.ok) {
-        router.push('/'); // Redirect to home on successful sign-in
+        router.push('/');
       }
     } catch (error) {
       console.error('Google sign-in error:', error);

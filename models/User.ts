@@ -30,6 +30,11 @@ const userSchema = new mongoose.Schema(
       default: false,
       require: true,
     },
+    verify: {
+      type: Boolean,
+      default: false,
+      require: true,
+    },
     birthDate: {
       type: Date,
       require: true,

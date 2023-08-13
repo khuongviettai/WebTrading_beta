@@ -9,8 +9,9 @@ export default function KhuongVIetTaiLink(props: IKhuongVIetTaiLinkProps) {
 }
 
 export const metadata: Metadata = {
-  title: 'Khương Viết Tài',
-  description: 'Welcome to Khuong Viet Tai',
+  title: 'Giới thiệu về Khương Viết Tài - Lập Trình Viên và Đam Mê Tài Chính',
+  description:
+    'Xin chào, tôi là Khương Viết Tài - một lập trình viên với niềm đam mê về tài chính. Khám phá hành trình kết hợp giữa lập trình và kiến thức tài chính trên trang cá nhân của tôi.',
   icons: {
     icon: '/favicon.ico',
   },
